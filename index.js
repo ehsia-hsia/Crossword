@@ -4,7 +4,7 @@
 */
 
 //CONGRATS BUTTON
-let congrats = document.getElementById("congrats");
+/*let congrats = document.getElementById("congrats");
 congrats.addEventListener("click", congratsFunction);
 
 function congratsFunction() {
@@ -34,7 +34,7 @@ function congratsFunction() {
     congrats.style.padding = "0";
   }
 }
-
+*/
 //CLEAR ALL BUTTON
 let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
@@ -317,5 +317,23 @@ function A4L4() {
   } else {
     A4_L4.style.color = "blue";
     A4_L4.style.backgroundColor = "lightblue";
+  }
+}
+
+//List Clues
+
+let input = document.getElementsByTagName("input");
+for (let i = 0; i < input.length; i++) {
+  input[i].addEventListener("keyup", list);
+}
+function list() {
+  let scam = document.getElementById("scamclue");
+  if (
+    A1_L1.value.toUpperCase().match("S") &&
+    A1_L2.value.toUpperCase().match("C") &&
+    A1_L3.value.toUpperCase().match("A") &&
+    A1_L4.value.toUpperCase().match("M")
+  ) {
+    scam.style.color = "blue";
   }
 }

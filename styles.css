@@ -1,16 +1,42 @@
-body {
-  margin: 3%;
+.gridlayout {
+  display: grid;
+  grid-template-columns: 200px 4fr;
+  grid-gap: 1rem;
+  margin: auto;
+  margin-top: 0;
+  padding: 5%;
+  padding-top: 0;
+}
+#clues {
+  grid-column: 1;
+  border: solid;
+  margin: auto;
+  margin-left: 60%;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.clueslist li {
+  font-size: 30px;
 }
 .heading {
-  height: 20%;
+  grid-row: 1;
+  grid-column: span 2;
+  height: 100%;
+  border: solid;
 }
+
 .buttonSection {
+  grid-row: 3;
+  grid-column: 2;
   display: grid;
   grid-gap: 1rem;
   width: 500px;
   height: 50%;
   margin: auto;
-  margin-top: 4%;
+  margin-top: 0;
+  align-items: baseline;
+  justify-content: center;
 }
 #clearAll {
   grid-row: 1;
@@ -26,17 +52,18 @@ body {
   font-size: 1rem;
 }
 
-#congrats {
-  grid-row: 2;
+/* #congrats {
+  grid-row: 1;
   height: 100px;
   width: 200px;
   padding-top: 7%;
   border: solid;
   text-align: center;
   font-size: 1rem;
-}
+} */
 
 .crosswordGrid {
+  grid-column: 2;
   width: 405px;
   height: 417px;
   display: grid;
