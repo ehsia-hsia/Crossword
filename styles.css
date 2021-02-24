@@ -1,15 +1,50 @@
+body {
+  margin: 3%;
+}
+.buttonSection {
+  display: grid;
+  grid-gap: 1rem;
+  width: 100%;
+  height: 50%;
+  margin-top: 4%;
+}
+#clearAll {
+  grid-row: 1;
+  height: 100px;
+  width: 300px;
+  font-size: 1rem;
+  background-color: blue;
+}
+#revealAll {
+  grid-row: 2;
+  height: 100px;
+  width: 300px;
+  font-size: 1rem;
+}
+
+#congrats {
+  grid-row: 1;
+  height: 100px;
+  width: 300px;
+  padding-top: 7%;
+  border: solid;
+  text-align: center;
+  font-size: 1rem;
+}
+
 .crosswordGrid {
-  width: 400px;
+  width: 405px;
   height: 417px;
   display: grid;
   grid-template-rows: 100px;
   grid-auto-columns: 100px;
   border: solid;
   grid-gap: 0;
+  margin: auto;
 }
 
 * {
-  height: 100px;
+  height: 100%;
   font-size: 2rem;
   text-align: center;
   text-transform: uppercase;

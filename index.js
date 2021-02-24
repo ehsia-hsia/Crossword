@@ -1,3 +1,8 @@
+/* check list
+-congrats button
+-reveal button
+*/
+
 //CONGRATS BUTTON
 let congrats = document.getElementById("congrats");
 congrats.addEventListener("click", congratsFunction);
@@ -14,8 +19,11 @@ function congratsFunction() {
     A2_L4.value.toUpperCase().match("E")
   ) {
     congrats.innerHTML = "congrats";
+    congrats.style.padding = "7%";
   } else {
-    congrats.innerHTML = "you're dumb";
+    congrats.innerHTML = "you're dumb, check again";
+    congrats.style.textAlign = "center";
+    congrats.style.padding = "0";
   }
 }
 
@@ -28,8 +36,35 @@ function clearAll() {
     if (input[i].type == "text") {
       input[i].value = "";
       input[i].style.backgroundColor = "white";
+      congrats.innerHTML = "Done?";
+      congrats.style.padding = "7%";
     }
   }
+}
+
+//Reveal All
+let revealButton = document.getElementById("revealAll");
+revealButton.addEventListener("click", revealAll);
+function revealAll() {
+  if (A1_L4.value != "m") {
+    A1_L4.value = "m";
+    A1_L4.style.color = "black";
+  }
+  if (A1_L3.value != "a") {
+    A1_L3.value = "a";
+    A1_L3.style.color = "black";
+  }
+  if (A1_L2.value != "c") {
+    A1_L2.value = "c";
+    A1_L2.style.color = "black";
+  }
+  // A1_L3.value.toUpperCase().match("A") &&
+  // A1_L2.value.toUpperCase().match("C") &&
+  // A1_L1.value.toUpperCase().match("S") &&
+  // A2_L1.value.toUpperCase().match("T") &&
+  // A2_L2.value.toUpperCase().match("O") &&
+  // A2_L3.value.toUpperCase().match("N") &&
+  // A2_L4.value.toUpperCase().match("E")
 }
 
 //CROSSWORD SETTINGS
