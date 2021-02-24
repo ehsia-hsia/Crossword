@@ -1,3 +1,6 @@
+body {
+  margin: auto;
+}
 .gridlayout {
   display: grid;
   grid-template-columns: 200px 4fr;
@@ -6,6 +9,8 @@
   margin-top: 0;
   padding: 5%;
   padding-top: 0;
+  border: solid;
+  height: 100%;
 }
 #clues {
   grid-column: 1;
@@ -38,22 +43,21 @@
   display: grid;
   grid-gap: 1rem;
   width: 500px;
-  height: 50%;
+  height: 100%;
   margin: auto;
   margin-top: 0;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: center;
 }
 #clearAll {
   grid-row: 1;
-  height: 100px;
+  height: 50px;
   width: 200px;
   font-size: 1rem;
-  background-color: blue;
 }
 #revealAll {
   grid-row: 1;
-  height: 100px;
+  height: 50px;
   width: 200px;
   font-size: 1rem;
 }

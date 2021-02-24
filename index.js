@@ -330,6 +330,10 @@ for (let i = 0; i < input.length; i++) {
 }
 function list() {
   let scam = document.getElementById("scamclue");
+  let tone = document.getElementById("toneclue");
+  let arts = document.getElementById("artsclue");
+  let bees = document.getElementById("beesclue");
+
   if (
     A1_L1.value.toUpperCase().match("S") &&
     A1_L2.value.toUpperCase().match("C") &&
@@ -339,5 +343,35 @@ function list() {
     scam.style.color = "blue";
   } else {
     scam.style.color = "black";
+  }
+  if (
+    A2_L1.value.toUpperCase().match("T") &&
+    A2_L2.value.toUpperCase().match("O") &&
+    A2_L3.value.toUpperCase().match("N") &&
+    A2_L4.value.toUpperCase().match("E")
+  ) {
+    tone.style.color = "blue";
+  } else {
+    tone.style.color = "black";
+  }
+  if (
+    A3_L1.value.toUpperCase().match("A") &&
+    A3_L2.value.toUpperCase().match("R") &&
+    A3_L3.value.toUpperCase().match("T") &&
+    A3_L4.value.toUpperCase().match("S")
+  ) {
+    arts.style.color = "blue";
+  } else {
+    arts.style.color = "black";
+  }
+  if (
+    A4_L1.value.toUpperCase().match("B") &&
+    A4_L2.value.toUpperCase().match("E") &&
+    A4_L3.value.toUpperCase().match("E") &&
+    A4_L4.value.toUpperCase().match("S")
+  ) {
+    bees.style.color = "blue";
+  } else {
+    bees.style.color = "black";
   }
 }
