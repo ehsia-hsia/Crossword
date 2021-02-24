@@ -12,12 +12,18 @@
   border: solid;
   margin: auto;
   margin-left: 60%;
-  height: 100%;
+  /* height: 900px; */
   width: 100%;
-  z-index: 1;
+  word-wrap: break-word;
 }
+
 .clueslist li {
-  font-size: 30px;
+  font-size: 20px;
+  max-height: 70px;
+  padding: 3%;
+  margin: 0;
+  text-align: left;
+  text-transform: none;
 }
 .heading {
   grid-row: 1;

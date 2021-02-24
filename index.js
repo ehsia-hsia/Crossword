@@ -40,12 +40,14 @@ let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
 function clearAll() {
   let input = document.getElementsByTagName("input");
+  let listItem = document.getElementsByTagName("li");
+  for (let j = 0; j < listItem.length; j++) {
+    listItem[j].style.color = "black";
+  }
   for (let i = 0; i < input.length; i++) {
     if (input[i].type == "text") {
       input[i].value = "";
       input[i].style.backgroundColor = "white";
-      congrats.innerHTML = "Done?";
-      congrats.style.padding = "7%";
     }
   }
 }
@@ -335,5 +337,7 @@ function list() {
     A1_L4.value.toUpperCase().match("M")
   ) {
     scam.style.color = "blue";
+  } else {
+    scam.style.color = "black";
   }
 }
