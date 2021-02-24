@@ -1,31 +1,35 @@
 body {
   margin: 3%;
 }
+.heading {
+  height: 20%;
+}
 .buttonSection {
   display: grid;
   grid-gap: 1rem;
-  width: 100%;
+  width: 500px;
   height: 50%;
+  margin: auto;
   margin-top: 4%;
 }
 #clearAll {
   grid-row: 1;
   height: 100px;
-  width: 300px;
+  width: 200px;
   font-size: 1rem;
   background-color: blue;
 }
 #revealAll {
-  grid-row: 2;
+  grid-row: 1;
   height: 100px;
-  width: 300px;
+  width: 200px;
   font-size: 1rem;
 }
 
 #congrats {
-  grid-row: 1;
+  grid-row: 2;
   height: 100px;
-  width: 300px;
+  width: 200px;
   padding-top: 7%;
   border: solid;
   text-align: center;
@@ -41,6 +45,7 @@ body {
   border: solid;
   grid-gap: 0;
   margin: auto;
+  margin-top: 0;
 }
 
 * {

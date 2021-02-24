@@ -9,14 +9,18 @@ congrats.addEventListener("click", congratsFunction);
 
 function congratsFunction() {
   if (
-    A1_L4.value.toUpperCase().match("M") &&
-    A1_L3.value.toUpperCase().match("A") &&
-    A1_L2.value.toUpperCase().match("C") &&
     A1_L1.value.toUpperCase().match("S") &&
+    A1_L2.value.toUpperCase().match("C") &&
+    A1_L3.value.toUpperCase().match("A") &&
+    A1_L4.value.toUpperCase().match("M") &&
     A2_L1.value.toUpperCase().match("T") &&
     A2_L2.value.toUpperCase().match("O") &&
     A2_L3.value.toUpperCase().match("N") &&
-    A2_L4.value.toUpperCase().match("E")
+    A2_L4.value.toUpperCase().match("E") &&
+    A3_L1.value.toUpperCase().match("A") &&
+    A3_L2.value.toUpperCase().match("R") &&
+    A3_L3.value.toUpperCase().match("T") &&
+    A3_L4.value.toUpperCase().match("S")
   ) {
     congrats.innerHTML = "congrats";
     congrats.style.padding = "7%";
@@ -58,13 +62,42 @@ function revealAll() {
     A1_L2.value = "c";
     A1_L2.style.color = "black";
   }
-  // A1_L3.value.toUpperCase().match("A") &&
-  // A1_L2.value.toUpperCase().match("C") &&
-  // A1_L1.value.toUpperCase().match("S") &&
-  // A2_L1.value.toUpperCase().match("T") &&
-  // A2_L2.value.toUpperCase().match("O") &&
-  // A2_L3.value.toUpperCase().match("N") &&
-  // A2_L4.value.toUpperCase().match("E")
+  if (A1_L1.value != "s") {
+    A1_L1.value = "s";
+    A1_L1.style.color = "black";
+  }
+  if (A2_L4.value != "e") {
+    A2_L4.value = "e";
+    A2_L4.style.color = "black";
+  }
+  if (A2_L3.value != "n") {
+    A2_L3.value = "n";
+    A2_L3.style.color = "black";
+  }
+  if (A2_L2.value != "o") {
+    A2_L2.value = "o";
+    A2_L2.style.color = "black";
+  }
+  if (A2_L1.value != "t") {
+    A2_L1.value = "t";
+    A2_L1.style.color = "black";
+  }
+  if (A3_L1.value != "a") {
+    A3_L1.value = "a";
+    A3_L1.style.color = "black";
+  }
+  if (A3_L2.value != "r") {
+    A3_L2.value = "r";
+    A3_L2.style.color = "black";
+  }
+  if (A3_L3.value != "t") {
+    A3_L3.value = "t";
+    A3_L3.style.color = "black";
+  }
+  if (A3_L4.value != "s") {
+    A3_L4.value = "s";
+    A3_L4.style.color = "black";
+  }
 }
 
 //CROSSWORD SETTINGS
@@ -165,5 +198,103 @@ function A2L4() {
   } else {
     A2_L4.style.color = "blue";
     A2_L4.style.backgroundColor = "lightblue";
+  }
+}
+
+// 3 Across: Arts
+
+let A3_L1 = document.getElementById("across3L1Input");
+A3_L1.addEventListener("keyup", A3L1);
+function A3L1() {
+  if (!A3_L1.value.toUpperCase().match("A")) {
+    A3_L1.style.color = "red";
+    A3_L1.style.backgroundColor = "white";
+  } else {
+    A3_L1.style.color = "blue";
+    A3_L1.style.backgroundColor = "lightblue";
+  }
+}
+
+let A3_L2 = document.getElementById("across3L2Input");
+A3_L2.addEventListener("keyup", A3L2);
+function A3L2() {
+  if (!A3_L2.value.toUpperCase().match("R")) {
+    A3_L2.style.color = "red";
+    A3_L2.style.backgroundColor = "white";
+  } else {
+    A3_L2.style.color = "blue";
+    A3_L2.style.backgroundColor = "lightblue";
+  }
+}
+
+let A3_L3 = document.getElementById("across3L3Input");
+A3_L3.addEventListener("keyup", A3L3);
+function A3L3() {
+  if (!A3_L3.value.toUpperCase().match("T")) {
+    A3_L3.style.color = "red";
+    A3_L3.style.backgroundColor = "white";
+  } else {
+    A3_L3.style.color = "blue";
+    A3_L3.style.backgroundColor = "lightblue";
+  }
+}
+
+let A3_L4 = document.getElementById("across3L4Input");
+A3_L4.addEventListener("keyup", A3L4);
+function A3L4() {
+  if (!A3_L4.value.toUpperCase().match("S")) {
+    A3_L4.style.color = "red";
+    A3_L4.style.backgroundColor = "white";
+  } else {
+    A3_L4.style.color = "blue";
+    A3_L4.style.backgroundColor = "lightblue";
+  }
+}
+// 4 Across: bees
+let A3_L1 = document.getElementById("across3L1Input");
+A3_L1.addEventListener("keyup", A3L1);
+function A3L1() {
+  if (!A3_L1.value.toUpperCase().match("A")) {
+    A3_L1.style.color = "red";
+    A3_L1.style.backgroundColor = "white";
+  } else {
+    A3_L1.style.color = "blue";
+    A3_L1.style.backgroundColor = "lightblue";
+  }
+}
+
+let A3_L2 = document.getElementById("across3L2Input");
+A3_L2.addEventListener("keyup", A3L2);
+function A3L2() {
+  if (!A3_L2.value.toUpperCase().match("R")) {
+    A3_L2.style.color = "red";
+    A3_L2.style.backgroundColor = "white";
+  } else {
+    A3_L2.style.color = "blue";
+    A3_L2.style.backgroundColor = "lightblue";
+  }
+}
+
+let A3_L3 = document.getElementById("across3L3Input");
+A3_L3.addEventListener("keyup", A3L3);
+function A3L3() {
+  if (!A3_L3.value.toUpperCase().match("T")) {
+    A3_L3.style.color = "red";
+    A3_L3.style.backgroundColor = "white";
+  } else {
+    A3_L3.style.color = "blue";
+    A3_L3.style.backgroundColor = "lightblue";
+  }
+}
+
+let A3_L4 = document.getElementById("across3L4Input");
+A3_L4.addEventListener("keyup", A3L4);
+function A3L4() {
+  if (!A3_L4.value.toUpperCase().match("S")) {
+    A3_L4.style.color = "red";
+    A3_L4.style.backgroundColor = "white";
+  } else {
+    A3_L4.style.color = "blue";
+    A3_L4.style.backgroundColor = "lightblue";
   }
 }
