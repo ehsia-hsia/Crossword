@@ -132,9 +132,9 @@ function A1L1() {
   if (!A1_L1.value.toUpperCase().match("S")) {
     A1_L1.style.color = "red";
     A1_L1.style.backgroundColor = "white";
-    A1_L1.addEventListener("focus", clearletter);
+    A1_L1.addEventListener("click", clearletter);
     function clearletter() {
-      A1_L1.value = "";
+      this.value = "";
     }
   } else {
     A1_L1.style.color = "blue";
@@ -148,6 +148,10 @@ function A1L2() {
   if (!A1_L2.value.toUpperCase().match("C")) {
     A1_L2.style.color = "red";
     A1_L2.style.backgroundColor = "white";
+    A1_L2.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A1_L2.style.color = "blue";
     A1_L2.style.backgroundColor = "lightblue";
@@ -160,6 +164,10 @@ function A1L3() {
   if (!A1_L3.value.toUpperCase().match("A")) {
     A1_L3.style.color = "red";
     A1_L3.style.backgroundColor = "white";
+    A1_L3.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A1_L3.style.color = "blue";
     A1_L3.style.backgroundColor = "lightblue";
@@ -172,6 +180,10 @@ function A1L4() {
   if (!A1_L4.value.toUpperCase().match("M")) {
     A1_L4.style.color = "red";
     A1_L4.style.backgroundColor = "white";
+    A1_L4.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A1_L4.style.color = "blue";
     A1_L4.style.backgroundColor = "lightblue";
@@ -186,6 +198,10 @@ function A2L1() {
   if (!A2_L1.value.toUpperCase().match("T")) {
     A2_L1.style.color = "red";
     A2_L1.style.backgroundColor = "white";
+    A2_L1.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A2_L1.style.color = "blue";
     A2_L1.style.backgroundColor = "lightblue";
@@ -198,6 +214,10 @@ function A2L2() {
   if (!A2_L2.value.toUpperCase().match("O")) {
     A2_L2.style.color = "red";
     A2_L2.style.backgroundColor = "white";
+    A2_L2.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A2_L2.style.color = "blue";
     A2_L2.style.backgroundColor = "lightblue";
@@ -210,6 +230,10 @@ function A2L3() {
   if (!A2_L3.value.toUpperCase().match("N")) {
     A2_L3.style.color = "red";
     A2_L3.style.backgroundColor = "white";
+    A2_L3.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A2_L3.style.color = "blue";
     A2_L3.style.backgroundColor = "lightblue";
@@ -222,6 +246,10 @@ function A2L4() {
   if (!A2_L4.value.toUpperCase().match("E")) {
     A2_L4.style.color = "red";
     A2_L4.style.backgroundColor = "white";
+    A2_L4.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A2_L4.style.color = "blue";
     A2_L4.style.backgroundColor = "lightblue";
@@ -236,6 +264,10 @@ function A3L1() {
   if (!A3_L1.value.toUpperCase().match("A")) {
     A3_L1.style.color = "red";
     A3_L1.style.backgroundColor = "white";
+    A3_L1.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A3_L1.style.color = "blue";
     A3_L1.style.backgroundColor = "lightblue";
@@ -248,6 +280,10 @@ function A3L2() {
   if (!A3_L2.value.toUpperCase().match("R")) {
     A3_L2.style.color = "red";
     A3_L2.style.backgroundColor = "white";
+    A3_L2.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A3_L2.style.color = "blue";
     A3_L2.style.backgroundColor = "lightblue";
@@ -260,6 +296,10 @@ function A3L3() {
   if (!A3_L3.value.toUpperCase().match("T")) {
     A3_L3.style.color = "red";
     A3_L3.style.backgroundColor = "white";
+    A3_L3.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A3_L3.style.color = "blue";
     A3_L3.style.backgroundColor = "lightblue";
@@ -272,6 +312,10 @@ function A3L4() {
   if (!A3_L4.value.toUpperCase().match("S")) {
     A3_L4.style.color = "red";
     A3_L4.style.backgroundColor = "white";
+    A3_L4.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A3_L4.style.color = "blue";
     A3_L4.style.backgroundColor = "lightblue";
@@ -285,6 +329,10 @@ function A4L1() {
   if (!A4_L1.value.toUpperCase().match("B")) {
     A4_L1.style.color = "red";
     A4_L1.style.backgroundColor = "white";
+    A4_L1.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A4_L1.style.color = "blue";
     A4_L1.style.backgroundColor = "lightblue";
@@ -297,6 +345,10 @@ function A4L2() {
   if (!A4_L2.value.toUpperCase().match("E")) {
     A4_L2.style.color = "red";
     A4_L2.style.backgroundColor = "white";
+    A4_L2.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A4_L2.style.color = "blue";
     A4_L2.style.backgroundColor = "lightblue";
@@ -309,6 +361,10 @@ function A4L3() {
   if (!A4_L3.value.toUpperCase().match("E")) {
     A4_L3.style.color = "red";
     A4_L3.style.backgroundColor = "white";
+    A4_L3.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A4_L3.style.color = "blue";
     A4_L3.style.backgroundColor = "lightblue";
@@ -321,6 +377,10 @@ function A4L4() {
   if (!A4_L4.value.toUpperCase().match("S")) {
     A4_L4.style.color = "red";
     A4_L4.style.backgroundColor = "white";
+    A4_L4.addEventListener("focus", clearletter);
+    function clearletter() {
+      this.value = "";
+    }
   } else {
     A4_L4.style.color = "blue";
     A4_L4.style.backgroundColor = "lightblue";
