@@ -127,10 +127,15 @@ function revealAll() {
 // 1 ACROSS: SCAM
 let A1_L1 = document.getElementById("across1L1Input");
 A1_L1.addEventListener("keyup", A1L1);
+
 function A1L1() {
   if (!A1_L1.value.toUpperCase().match("S")) {
     A1_L1.style.color = "red";
     A1_L1.style.backgroundColor = "white";
+    A1_L1.addEventListener("focus", clearletter);
+    function clearletter() {
+      A1_L1.value = "";
+    }
   } else {
     A1_L1.style.color = "blue";
     A1_L1.style.backgroundColor = "lightblue";
