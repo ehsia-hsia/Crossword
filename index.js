@@ -13,12 +13,31 @@ function incorrectColorChange(square) {
 }
 
 // 1 ACROSS: SCAM
+let input1 = document.getElementsByTagName("input");
+for (let i = 0; i < input1.length; i++) {
+  input1[i].addEventListener("keyup", checkLetter);
+}
 
-// S
 let A1_L1 = document.getElementById("across1L1Input");
 A1_L1.addEventListener("keyup", A1L1);
+let scam1;
+
+let A1_L2 = document.getElementById("across1L2Input");
+A1_L2.addEventListener("keyup", A1L2);
+let scam2;
+
+function checkLetter() {
+  if (A1_L1.value.toUpperCase().match("S")) {
+    scam1 = true;
+  }
+  if (A1_L2.value.toUpperCase().match("C")) {
+    scam2 = true;
+  }
+}
+// S
+
 function A1L1() {
-  if (!A1_L1.value.toUpperCase().match("S")) {
+  if (scam1 !== true) {
     incorrectColorChange(this);
   } else {
     correctColorChange(this);
@@ -26,15 +45,15 @@ function A1L1() {
 }
 
 //C
-let A1_L2 = document.getElementById("across1L2Input");
-A1_L2.addEventListener("keyup", A1L2);
+
 function A1L2() {
-  if (!A1_L2.value.toUpperCase().match("C")) {
+  if (scam2 !== true) {
     incorrectColorChange(this);
   } else {
     correctColorChange(this);
   }
 }
+
 //A
 
 let A1_L3 = document.getElementById("across1L3Input");
@@ -188,28 +207,54 @@ function A4L4() {
     correctColorChange(this);
   }
 }
-//--------------------------CLUES-----------------------------//
+//--------------------------CORRECT WORDS-----------------------------//
 
-//List Clues
 let input = document.getElementsByTagName("input");
 for (let i = 0; i < input.length; i++) {
-  input[i].addEventListener("keyup", Scam);
+  input[i].addEventListener("keyup", checkWord);
 }
 
-let backCheck;
+let scamCheck;
+let toneCheck;
+let artsCheck;
+let beesCheck;
 
-function Scam() {
+function checkWord() {
   if (
     A1_L1.value.toUpperCase().match("S") &&
     A1_L2.value.toUpperCase().match("C") &&
     A1_L3.value.toUpperCase().match("A") &&
     A1_L4.value.toUpperCase().match("M")
   ) {
-    backCheck = true;
+    scamCheck = true;
+  }
+  if (
+    A2_L1.value.toUpperCase().match("T") &&
+    A2_L2.value.toUpperCase().match("O") &&
+    A2_L3.value.toUpperCase().match("N") &&
+    A2_L4.value.toUpperCase().match("E")
+  ) {
+    toneCheck = true;
+  }
+  if (
+    A3_L1.value.toUpperCase().match("A") &&
+    A3_L2.value.toUpperCase().match("R") &&
+    A3_L3.value.toUpperCase().match("T") &&
+    A3_L4.value.toUpperCase().match("S")
+  ) {
+    artsCheck = true;
+  }
+  if (
+    A4_L1.value.toUpperCase().match("B") &&
+    A4_L2.value.toUpperCase().match("E") &&
+    A4_L3.value.toUpperCase().match("E") &&
+    A4_L4.value.toUpperCase().match("S")
+  ) {
+    beesCheck = true;
   }
 }
-
-// let input = document.getElementsByTagName("input");
+//-------------LIST-----------
+// LIST CHECK
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", list);
 }
@@ -218,39 +263,24 @@ function correctListItem(listI) {
 }
 
 function list() {
-  if (backCheck == true) {
+  if (scamCheck == true) {
     let item = document.getElementById("scamclue");
     correctListItem(item);
   }
-  debugger;
-  if (
-    A2_L1.value.toUpperCase().match("T") &&
-    A2_L2.value.toUpperCase().match("O") &&
-    A2_L3.value.toUpperCase().match("N") &&
-    A2_L4.value.toUpperCase().match("E")
-  ) {
+  if (toneCheck == true) {
     let item = document.getElementById("toneclue");
     correctListItem(item);
   }
-  if (
-    A3_L1.value.toUpperCase().match("A") &&
-    A3_L2.value.toUpperCase().match("R") &&
-    A3_L3.value.toUpperCase().match("T") &&
-    A3_L4.value.toUpperCase().match("S")
-  ) {
+  if (artsCheck == true) {
     let item = document.getElementById("artsclue");
     correctListItem(item);
   }
-  if (
-    A4_L1.value.toUpperCase().match("B") &&
-    A4_L2.value.toUpperCase().match("E") &&
-    A4_L3.value.toUpperCase().match("E") &&
-    A4_L4.value.toUpperCase().match("S")
-  ) {
+  if (beesCheck == true) {
     let item = document.getElementById("beesclue");
     correctListItem(item);
   }
 }
+
 ///------------BUTTONS----------------------------------
 //CLEAR ALL BUTTON
 let clearButton = document.getElementById("clearAll");
@@ -400,5 +430,14 @@ function congratsFunction() {
 //   } else {
 //     A1_L1.style.color = "blue";
 //     A1_L1.style.backgroundColor = "lightblue";
+//   }
+// }
+// let A1_L2 = document.getElementById("across1L2Input");
+// A1_L2.addEventListener("keyup", A1L2);
+// function A1L2() {
+//   if (!A1_L2.value.toUpperCase().match("C")) {
+//     incorrectColorChange(this);
+//   } else {
+//     correctColorChange(this);
 //   }
 // }
