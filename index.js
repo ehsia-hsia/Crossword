@@ -93,6 +93,10 @@ function correctColorChange(square) {
 function incorrectColorChange(square) {
   square.style.color = "red";
   square.style.backgroundColor = "white";
+  square.addEventListener("focus", clearletter);
+  function clearletter() {
+    square.value = "";
+  }
 }
 
 // 1 ACROSS: SCAM
@@ -102,10 +106,6 @@ A1_L1.addEventListener("keyup", A1L1);
 function A1L1() {
   if (!A1_L1.value.toUpperCase().match("S")) {
     incorrectColorChange(this);
-    this.addEventListener("focus", clearletter);
-    function clearletter() {
-      this.value = "";
-    }
   } else {
     correctColorChange(this);
   }
@@ -119,10 +119,6 @@ function A1L2() {
     incorrectColorChange(this);
   } else {
     correctColorChange(this);
-    this.addEventListener("focus", clearletter);
-    function clearletter() {
-      this.value = "";
-    }
   }
 }
 //A
@@ -134,10 +130,6 @@ function A1L3() {
     incorrectColorChange(this);
   } else {
     correctColorChange(this);
-    this.addEventListener("focus", clearletter);
-    function clearletter() {
-      this.value = "";
-    }
   }
 }
 
@@ -162,15 +154,13 @@ let A2_L1 = document.getElementById("across2L1Input");
 A2_L1.addEventListener("keyup", A2L1);
 function A2L1() {
   if (!A2_L1.value.toUpperCase().match("T")) {
-    A2_L1.style.color = "red";
-    A2_L1.style.backgroundColor = "white";
-    A2_L1.addEventListener("focus", clearletter);
+    incorrectColorChange(this);
+  } else {
+    correctColorChange(this);
+    this.addEventListener("focus", clearletter);
     function clearletter() {
       this.value = "";
     }
-  } else {
-    A2_L1.style.color = "blue";
-    A2_L1.style.backgroundColor = "lightblue";
   }
 }
 
@@ -178,15 +168,13 @@ let A2_L2 = document.getElementById("across2L2Input");
 A2_L2.addEventListener("keyup", A2L2);
 function A2L2() {
   if (!A2_L2.value.toUpperCase().match("O")) {
-    A2_L2.style.color = "red";
-    A2_L2.style.backgroundColor = "white";
-    A2_L2.addEventListener("focus", clearletter);
+    incorrectColorChange(this);
+  } else {
+    correctColorChange(this);
+    this.addEventListener("focus", clearletter);
     function clearletter() {
       this.value = "";
     }
-  } else {
-    A2_L2.style.color = "blue";
-    A2_L2.style.backgroundColor = "lightblue";
   }
 }
 
