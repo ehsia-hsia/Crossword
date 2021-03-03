@@ -57,6 +57,18 @@ function checkLetter() {
   if (A3_L4.value.toUpperCase().match("S")) {
     arts4 = true;
   }
+  if (A4_L1.value.toUpperCase().match("B")) {
+    bees1 = true;
+  }
+  if (A4_L2.value.toUpperCase().match("E")) {
+    bees2 = true;
+  }
+  if (A4_L3.value.toUpperCase().match("E")) {
+    bees3 = true;
+  }
+  if (A4_L4.value.toUpperCase().match("S")) {
+    bees4 = true;
+  }
 }
 
 //____1 ACROSS: SCAM____
@@ -162,60 +174,52 @@ function A3L2() {
 }
 
 //T
-
 function A3L3() {
   return arts3 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //S
-
 function A3L4() {
   return arts4 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
-// 4 Across: bees
-//B
+//_________4 Across: bees___________
 let A4_L1 = document.getElementById("across4L1Input");
 A4_L1.addEventListener("keyup", A4L1);
-function A4L1() {
-  if (!A4_L1.value.toUpperCase().match("B")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
-}
+let bees1;
 
-//E
 let A4_L2 = document.getElementById("across4L2Input");
 A4_L2.addEventListener("keyup", A4L2);
-function A4L2() {
-  if (!A4_L2.value.toUpperCase().match("E")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+let bees2;
+
+let A4_L3 = document.getElementById("across4L3Input");
+A4_L3.addEventListener("keyup", A4L3);
+let bees3;
+
+let A4_L4 = document.getElementById("across4L4Input");
+A4_L4.addEventListener("keyup", A4L4);
+let bees4;
+
+//B
+function A4L1() {
+  return bees1 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //E
-let A4_L3 = document.getElementById("across4L3Input");
-A4_L3.addEventListener("keyup", A4L3);
+function A4L2() {
+  return bees2 !== true ? incorrectColorChange(this) : correctColorChange(this);
+}
+
+//E
 function A4L3() {
-  if (!A4_L3.value.toUpperCase().match("E")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return bees3 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
+
 //S
-let A4_L4 = document.getElementById("across4L4Input");
-A4_L4.addEventListener("keyup", A4L4);
 function A4L4() {
-  if (!A4_L4.value.toUpperCase().match("S")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return bees4 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
+
 //--------------------------CORRECT WORDS-----------------------------//
 
 let input = document.getElementsByTagName("input");
