@@ -1,4 +1,6 @@
 //CROSSWORD SETTINGS
+
+//________________COLOR CHANGES________________
 function correctColorChange(square) {
   square.style.color = "blue";
   square.style.backgroundColor = "lightblue";
@@ -12,11 +14,52 @@ function incorrectColorChange(square) {
   }
 }
 
-// 1 ACROSS: SCAM
+//_______________LETTER CHECKER____________________
 let input1 = document.getElementsByTagName("input");
 for (let i = 0; i < input1.length; i++) {
   input1[i].addEventListener("keyup", checkLetter);
 }
+
+function checkLetter() {
+  if (A1_L1.value.toUpperCase().match("S")) {
+    scam1 = true;
+  }
+  if (A1_L2.value.toUpperCase().match("C")) {
+    scam2 = true;
+  }
+  if (A1_L3.value.toUpperCase().match("A")) {
+    scam3 = true;
+  }
+  if (A1_L4.value.toUpperCase().match("M")) {
+    scam4 = true;
+  }
+  if (A2_L1.value.toUpperCase().match("T")) {
+    tone1 = true;
+  }
+  if (A2_L2.value.toUpperCase().match("O")) {
+    tone2 = true;
+  }
+  if (A2_L3.value.toUpperCase().match("N")) {
+    tone3 = true;
+  }
+  if (A2_L4.value.toUpperCase().match("E")) {
+    tone4 = true;
+  }
+  if (A3_L1.value.toUpperCase().match("A")) {
+    arts1 = true;
+  }
+  if (A3_L2.value.toUpperCase().match("R")) {
+    arts2 = true;
+  }
+  if (A3_L3.value.toUpperCase().match("T")) {
+    arts3 = true;
+  }
+  if (A3_L4.value.toUpperCase().match("S")) {
+    arts4 = true;
+  }
+}
+
+//____1 ACROSS: SCAM____
 
 let A1_L1 = document.getElementById("across1L1Input");
 A1_L1.addEventListener("keyup", A1L1);
@@ -26,142 +69,108 @@ let A1_L2 = document.getElementById("across1L2Input");
 A1_L2.addEventListener("keyup", A1L2);
 let scam2;
 
-function checkLetter() {
-  if (A1_L1.value.toUpperCase().match("S")) {
-    scam1 = true;
-  }
-  if (A1_L2.value.toUpperCase().match("C")) {
-    scam2 = true;
-  }
-}
-// S
+let A1_L3 = document.getElementById("across1L3Input");
+A1_L3.addEventListener("keyup", A1L3);
+let scam3;
 
+let A1_L4 = document.getElementById("across1L4Input");
+A1_L4.addEventListener("keyup", A1L4);
+let scam4;
+// S
 function A1L1() {
-  if (scam1 !== true) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return scam1 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //C
-
 function A1L2() {
-  if (scam2 !== true) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return scam2 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //A
-
-let A1_L3 = document.getElementById("across1L3Input");
-A1_L3.addEventListener("keyup", A1L3);
 function A1L3() {
-  if (!A1_L3.value.toUpperCase().match("A")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return scam3 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //M
-let A1_L4 = document.getElementById("across1L4Input");
-A1_L4.addEventListener("keyup", A1L4);
 function A1L4() {
-  if (!A1_L4.value.toUpperCase().match("M")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return scam4 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
-// 2 Across: TONE
-//T
+// ________2 Across: TONE__
+
 let A2_L1 = document.getElementById("across2L1Input");
 A2_L1.addEventListener("keyup", A2L1);
-function A2L1() {
-  if (!A2_L1.value.toUpperCase().match("T")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
-}
-//O
+let tone1;
+
 let A2_L2 = document.getElementById("across2L2Input");
 A2_L2.addEventListener("keyup", A2L2);
-function A2L2() {
-  if (!A2_L2.value.toUpperCase().match("O")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
-}
-//N
+let tone2;
+
 let A2_L3 = document.getElementById("across2L3Input");
 A2_L3.addEventListener("keyup", A2L3);
-function A2L3() {
-  if (!A2_L3.value.toUpperCase().match("N")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
-}
-//E
+let tone3;
+
 let A2_L4 = document.getElementById("across2L4Input");
 A2_L4.addEventListener("keyup", A2L4);
-function A2L4() {
-  if (!A2_L4.value.toUpperCase().match("E")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+let tone4;
+
+//T
+function A2L1() {
+  return tone1 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
-// 3 Across: Arts
-//A
+//O
+function A2L2() {
+  return tone2 !== true ? incorrectColorChange(this) : correctColorChange(this);
+}
+
+//N
+function A2L3() {
+  return tone3 !== true ? incorrectColorChange(this) : correctColorChange(this);
+}
+
+//E
+function A2L4() {
+  return tone4 !== true ? incorrectColorChange(this) : correctColorChange(this);
+}
+
+//_________3 Across: Arts__________
 let A3_L1 = document.getElementById("across3L1Input");
 A3_L1.addEventListener("keyup", A3L1);
+let arts1;
+
+let A3_L2 = document.getElementById("across3L2Input");
+A3_L2.addEventListener("keyup", A3L2);
+let arts2;
+
+let A3_L3 = document.getElementById("across3L3Input");
+A3_L3.addEventListener("keyup", A3L3);
+let arts3;
+
+let A3_L4 = document.getElementById("across3L4Input");
+A3_L4.addEventListener("keyup", A3L4);
+let arts4;
+
+//A
 function A3L1() {
-  if (!A3_L1.value.toUpperCase().match("A")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return arts1 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //R
-let A3_L2 = document.getElementById("across3L2Input");
-A3_L2.addEventListener("keyup", A3L2);
 function A3L2() {
-  if (!A3_L2.value.toUpperCase().match("R")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return arts2 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //T
-let A3_L3 = document.getElementById("across3L3Input");
-A3_L3.addEventListener("keyup", A3L3);
+
 function A3L3() {
-  if (!A3_L3.value.toUpperCase().match("T")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return arts3 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 //S
-let A3_L4 = document.getElementById("across3L4Input");
-A3_L4.addEventListener("keyup", A3L4);
+
 function A3L4() {
-  if (!A3_L4.value.toUpperCase().match("S")) {
-    incorrectColorChange(this);
-  } else {
-    correctColorChange(this);
-  }
+  return arts4 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
 // 4 Across: bees
@@ -279,6 +288,14 @@ function list() {
     let item = document.getElementById("beesclue");
     correctListItem(item);
   }
+  if (
+    scamCheck == true &&
+    toneCheck == true &&
+    artsCheck == true &&
+    beesCheck == true
+  ) {
+    document.querySelector("body").style.backgroundColor = "green";
+  }
 }
 
 ///------------BUTTONS----------------------------------
@@ -302,10 +319,10 @@ function clearAll() {
 //Reveal All
 let revealButton = document.getElementById("revealAll");
 revealButton.addEventListener("click", revealAll);
-
 function blackText(aNum) {
   aNum.style.color = "black";
 }
+
 function revealAll() {
   if (A1_L4.value != "m") {
     A1_L4.value = "m";
@@ -319,7 +336,7 @@ function revealAll() {
     A1_L2.value = "c";
     blackText(this);
   }
-  if (A1_L1.value != "s") {
+  if (scam1 !== true) {
     A1_L1.value = "s";
     blackText(this);
   }
