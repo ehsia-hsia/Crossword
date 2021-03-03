@@ -1,40 +1,3 @@
-/* check list
--congrats button
--reveal button
-*/
-
-//CONGRATS BUTTON
-/*let congrats = document.getElementById("congrats");
-congrats.addEventListener("click", congratsFunction);
-
-function congratsFunction() {
-  if (
-    A1_L1.value.toUpperCase().match("S") &&
-    A1_L2.value.toUpperCase().match("C") &&
-    A1_L3.value.toUpperCase().match("A") &&
-    A1_L4.value.toUpperCase().match("M") &&
-    A2_L1.value.toUpperCase().match("T") &&
-    A2_L2.value.toUpperCase().match("O") &&
-    A2_L3.value.toUpperCase().match("N") &&
-    A2_L4.value.toUpperCase().match("E") &&
-    A3_L1.value.toUpperCase().match("A") &&
-    A3_L2.value.toUpperCase().match("R") &&
-    A3_L3.value.toUpperCase().match("T") &&
-    A3_L4.value.toUpperCase().match("S") &&
-    A4_L1.value.toUpperCase().match("B") &&
-    A4_L2.value.toUpperCase().match("E") &&
-    A4_L3.value.toUpperCase().match("E") &&
-    A4_L4.value.toUpperCase().match("S")
-  ) {
-    congrats.innerHTML = "congrats";
-    congrats.style.padding = "7%";
-  } else {
-    congrats.innerHTML = "you're dumb, check again";
-    congrats.style.textAlign = "center";
-    congrats.style.padding = "0";
-  }
-}
-*/
 //CLEAR ALL BUTTON
 let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
@@ -123,70 +86,73 @@ function revealAll() {
 }
 
 //CROSSWORD SETTINGS
+function correctColorChange(square) {
+  square.style.color = "blue";
+  square.style.backgroundColor = "lightblue";
+}
+function incorrectColorChange(square) {
+  square.style.color = "red";
+  square.style.backgroundColor = "white";
+}
 
 // 1 ACROSS: SCAM
+// S
 let A1_L1 = document.getElementById("across1L1Input");
 A1_L1.addEventListener("keyup", A1L1);
-
 function A1L1() {
   if (!A1_L1.value.toUpperCase().match("S")) {
-    A1_L1.style.color = "red";
-    A1_L1.style.backgroundColor = "white";
-    A1_L1.addEventListener("click", clearletter);
+    incorrectColorChange(this);
+    this.addEventListener("focus", clearletter);
     function clearletter() {
       this.value = "";
     }
   } else {
-    A1_L1.style.color = "blue";
-    A1_L1.style.backgroundColor = "lightblue";
+    correctColorChange(this);
   }
 }
 
+//C
 let A1_L2 = document.getElementById("across1L2Input");
 A1_L2.addEventListener("keyup", A1L2);
 function A1L2() {
   if (!A1_L2.value.toUpperCase().match("C")) {
-    A1_L2.style.color = "red";
-    A1_L2.style.backgroundColor = "white";
-    A1_L2.addEventListener("focus", clearletter);
+    incorrectColorChange(this);
+  } else {
+    correctColorChange(this);
+    this.addEventListener("focus", clearletter);
     function clearletter() {
       this.value = "";
     }
-  } else {
-    A1_L2.style.color = "blue";
-    A1_L2.style.backgroundColor = "lightblue";
   }
 }
+//A
 
 let A1_L3 = document.getElementById("across1L3Input");
 A1_L3.addEventListener("keyup", A1L3);
 function A1L3() {
   if (!A1_L3.value.toUpperCase().match("A")) {
-    A1_L3.style.color = "red";
-    A1_L3.style.backgroundColor = "white";
-    A1_L3.addEventListener("focus", clearletter);
+    incorrectColorChange(this);
+  } else {
+    correctColorChange(this);
+    this.addEventListener("focus", clearletter);
     function clearletter() {
       this.value = "";
     }
-  } else {
-    A1_L3.style.color = "blue";
-    A1_L3.style.backgroundColor = "lightblue";
   }
 }
 
+//M
 let A1_L4 = document.getElementById("across1L4Input");
 A1_L4.addEventListener("keyup", A1L4);
 function A1L4() {
   if (!A1_L4.value.toUpperCase().match("M")) {
-    A1_L4.style.color = "red";
-    A1_L4.style.backgroundColor = "white";
-    A1_L4.addEventListener("focus", clearletter);
+    incorrectColorChange(this);
+  } else {
+    correctColorChange(this);
+    this.addEventListener("focus", clearletter);
     function clearletter() {
       this.value = "";
     }
-  } else {
-    A1_L4.style.color = "blue";
-    A1_L4.style.backgroundColor = "lightblue";
   }
 }
 
@@ -440,3 +406,61 @@ function list() {
     bees.style.color = "black";
   }
 }
+
+/* check list
+-congrats button
+-reveal button
+*/
+
+//CONGRATS BUTTON
+/*let congrats = document.getElementById("congrats");
+congrats.addEventListener("click", congratsFunction);
+
+function congratsFunction() {
+  if (
+    A1_L1.value.toUpperCase().match("S") &&
+    A1_L2.value.toUpperCase().match("C") &&
+    A1_L3.value.toUpperCase().match("A") &&
+    A1_L4.value.toUpperCase().match("M") &&
+    A2_L1.value.toUpperCase().match("T") &&
+    A2_L2.value.toUpperCase().match("O") &&
+    A2_L3.value.toUpperCase().match("N") &&
+    A2_L4.value.toUpperCase().match("E") &&
+    A3_L1.value.toUpperCase().match("A") &&
+    A3_L2.value.toUpperCase().match("R") &&
+    A3_L3.value.toUpperCase().match("T") &&
+    A3_L4.value.toUpperCase().match("S") &&
+    A4_L1.value.toUpperCase().match("B") &&
+    A4_L2.value.toUpperCase().match("E") &&
+    A4_L3.value.toUpperCase().match("E") &&
+    A4_L4.value.toUpperCase().match("S")
+  ) {
+    congrats.innerHTML = "congrats";
+    congrats.style.padding = "7%";
+  } else {
+    congrats.innerHTML = "you're dumb, check again";
+    congrats.style.textAlign = "center";
+    congrats.style.padding = "0";
+  }
+}
+*/
+
+// // 1 ACROSS: SCAM
+// let A1_L1 = document.getElementById("across1L1Input");
+// A1_L1.addEventListener("keyup", A1L1);
+
+// function A1L1() {
+//   A1_L1.style.color = "black";
+
+//   if (!A1_L1.value.toUpperCase().match("S")) {
+//     A1_L1.style.color = "red";
+//     A1_L1.style.backgroundColor = "white";
+//     A1_L1.addEventListener("click", clearletter);
+//     function clearletter() {
+//       this.value = "";
+//     }
+//   } else {
+//     A1_L1.style.color = "blue";
+//     A1_L1.style.backgroundColor = "lightblue";
+//   }
+// }

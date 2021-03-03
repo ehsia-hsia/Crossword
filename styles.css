@@ -100,7 +100,9 @@ input {
   margin-top: 0;
   box-shadow: 5px 5px 5px black;
 }
-
+input:focus {
+  color: white;
+}
 * {
   height: 100%;
   font-size: 2rem;
