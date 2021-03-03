@@ -178,7 +178,7 @@ function A4L3() {
     correctColorChange(this);
   }
 }
-
+//S
 let A4_L4 = document.getElementById("across4L4Input");
 A4_L4.addEventListener("keyup", A4L4);
 function A4L4() {
@@ -191,36 +191,46 @@ function A4L4() {
 //--------------------------CLUES-----------------------------//
 
 //List Clues
-
 let input = document.getElementsByTagName("input");
 for (let i = 0; i < input.length; i++) {
-  input[i].addEventListener("keyup", list);
+  input[i].addEventListener("keyup", Scam);
 }
-function list() {
-  let scam = document.getElementById("scamclue");
-  let tone = document.getElementById("toneclue");
-  let arts = document.getElementById("artsclue");
-  let bees = document.getElementById("beesclue");
 
+let backCheck;
+
+function Scam() {
   if (
     A1_L1.value.toUpperCase().match("S") &&
     A1_L2.value.toUpperCase().match("C") &&
     A1_L3.value.toUpperCase().match("A") &&
     A1_L4.value.toUpperCase().match("M")
   ) {
-    scam.style.color = "blue";
-  } else {
-    scam.style.color = "black";
+    backCheck = true;
   }
+}
+
+// let input = document.getElementsByTagName("input");
+for (let i = 0; i < input.length; i++) {
+  input[i].addEventListener("keyup", list);
+}
+function correctListItem(listI) {
+  listI.style.color = "blue";
+}
+
+function list() {
+  if (backCheck == true) {
+    let item = document.getElementById("scamclue");
+    correctListItem(item);
+  }
+  debugger;
   if (
     A2_L1.value.toUpperCase().match("T") &&
     A2_L2.value.toUpperCase().match("O") &&
     A2_L3.value.toUpperCase().match("N") &&
     A2_L4.value.toUpperCase().match("E")
   ) {
-    tone.style.color = "blue";
-  } else {
-    tone.style.color = "black";
+    let item = document.getElementById("toneclue");
+    correctListItem(item);
   }
   if (
     A3_L1.value.toUpperCase().match("A") &&
@@ -228,9 +238,8 @@ function list() {
     A3_L3.value.toUpperCase().match("T") &&
     A3_L4.value.toUpperCase().match("S")
   ) {
-    arts.style.color = "blue";
-  } else {
-    arts.style.color = "black";
+    let item = document.getElementById("artsclue");
+    correctListItem(item);
   }
   if (
     A4_L1.value.toUpperCase().match("B") &&
@@ -238,9 +247,8 @@ function list() {
     A4_L3.value.toUpperCase().match("E") &&
     A4_L4.value.toUpperCase().match("S")
   ) {
-    bees.style.color = "blue";
-  } else {
-    bees.style.color = "black";
+    let item = document.getElementById("beesclue");
+    correctListItem(item);
   }
 }
 ///------------BUTTONS----------------------------------
@@ -264,70 +272,74 @@ function clearAll() {
 //Reveal All
 let revealButton = document.getElementById("revealAll");
 revealButton.addEventListener("click", revealAll);
+
+function blackText(aNum) {
+  aNum.style.color = "black";
+}
 function revealAll() {
   if (A1_L4.value != "m") {
     A1_L4.value = "m";
-    A1_L4.style.color = "black";
+    blackText(this);
   }
   if (A1_L3.value != "a") {
     A1_L3.value = "a";
-    A1_L3.style.color = "black";
+    blackText(this);
   }
   if (A1_L2.value != "c") {
     A1_L2.value = "c";
-    A1_L2.style.color = "black";
+    blackText(this);
   }
   if (A1_L1.value != "s") {
     A1_L1.value = "s";
-    A1_L1.style.color = "black";
+    blackText(this);
   }
   if (A2_L4.value != "e") {
     A2_L4.value = "e";
-    A2_L4.style.color = "black";
+    blackText(this);
   }
   if (A2_L3.value != "n") {
     A2_L3.value = "n";
-    A2_L3.style.color = "black";
+    blackText(this);
   }
   if (A2_L2.value != "o") {
     A2_L2.value = "o";
-    A2_L2.style.color = "black";
+    blackText(this);
   }
   if (A2_L1.value != "t") {
     A2_L1.value = "t";
-    A2_L1.style.color = "black";
+    blackText(this);
   }
   if (A3_L1.value != "a") {
     A3_L1.value = "a";
-    A3_L1.style.color = "black";
+    blackText(this);
   }
   if (A3_L2.value != "r") {
     A3_L2.value = "r";
-    A3_L2.style.color = "black";
+    blackText(this);
   }
   if (A3_L3.value != "t") {
     A3_L3.value = "t";
-    A3_L3.style.color = "black";
+    blackText(this);
   }
   if (A3_L4.value != "s") {
     A3_L4.value = "s";
-    A3_L4.style.color = "black";
+    blackText(this);
   }
   if (A4_L4.value != "s") {
     A4_L4.value = "s";
-    A4_L4.style.color = "black";
+    blackText(this);
   }
   if (A4_L3.value != "e") {
     A4_L3.value = "e";
-    A4_L3.style.color = "black";
+    blackText(this);
   }
   if (A4_L2.value != "e") {
     A4_L2.value = "e";
-    A4_L2.style.color = "black";
+    blackText(this);
   }
   if (A4_L1.value != "b") {
     A4_L1.value = "b";
-    A4_L1.style.color = "black";
+    blackText(this);
   }
 }
 
