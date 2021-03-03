@@ -309,7 +309,6 @@ clearButton.addEventListener("click", clearAll);
 
 function clearAll() {
   document.querySelector("body").style.backgroundColor = "white";
-
   let input = document.getElementsByTagName("input");
   let listItem = document.getElementsByTagName("li");
   for (let j = 0; j < listItem.length; j++) {
@@ -337,11 +336,16 @@ function clearAll() {
   bees2 = false;
   bees3 = false;
   bees4 = false;
+  scamCheck = false;
+  toneCheck = false;
+  artsCheck = false;
+  beesCheck = false;
 }
 
 //Reveal All
 let revealButton = document.getElementById("revealAll");
 revealButton.addEventListener("click", revealAll);
+
 function blackText(aNum) {
   aNum.style.color = "black";
 }
@@ -349,13 +353,13 @@ function blackText(aNum) {
 function revealAll() {
   if (A1_L4.value != "m") {
     A1_L4.value = "m";
-    blackText(this);
+    A1_L4.style.color = "black";
   }
-  if (A1_L3.value != "a") {
+  if (scam3 !== true) {
     A1_L3.value = "a";
     blackText(this);
   }
-  if (A1_L2.value != "c") {
+  if (scam2 !== true) {
     A1_L2.value = "c";
     blackText(this);
   }
