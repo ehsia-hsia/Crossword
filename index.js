@@ -265,6 +265,14 @@ function checkWord() {
   ) {
     beesCheck = true;
   }
+  if (
+    scamCheck == true &&
+    toneCheck == true &&
+    artsCheck == true &&
+    beesCheck == true
+  ) {
+    document.querySelector("body").style.backgroundColor = "green";
+  }
 }
 //-------------LIST-----------
 // LIST CHECK
@@ -292,21 +300,16 @@ function list() {
     let item = document.getElementById("beesclue");
     correctListItem(item);
   }
-  if (
-    scamCheck == true &&
-    toneCheck == true &&
-    artsCheck == true &&
-    beesCheck == true
-  ) {
-    document.querySelector("body").style.backgroundColor = "green";
-  }
 }
 
 ///------------BUTTONS----------------------------------
 //CLEAR ALL BUTTON
 let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
+
 function clearAll() {
+  document.querySelector("body").style.backgroundColor = "white";
+
   let input = document.getElementsByTagName("input");
   let listItem = document.getElementsByTagName("li");
   for (let j = 0; j < listItem.length; j++) {
@@ -318,6 +321,22 @@ function clearAll() {
       input[i].style.backgroundColor = "white";
     }
   }
+  scam1 = false;
+  scam2 = false;
+  scam3 = false;
+  scam4 = false;
+  tone1 = false;
+  tone2 = false;
+  tone3 = false;
+  tone4 = false;
+  arts1 = false;
+  arts2 = false;
+  arts3 = false;
+  arts4 = false;
+  bees1 = false;
+  bees2 = false;
+  bees3 = false;
+  bees4 = false;
 }
 
 //Reveal All
