@@ -79,24 +79,31 @@ for (let i = 0; i < input.length; i++) {
 } //end input loop
 
 //list item change
-let scam = 0;
+let scam = letterKey.slice(0, 4);
+let tone = letterKey.slice(4, 8);
+
+let scamCounter = 0;
+let toneCounter = 0;
 
 function wordChecker(input) {
-  if (input.value == letterKey[0][1]) {
-    scam++;
+  for (let y = 0; y < scam.length; y++) {
+    if (input.value == scam[y][1]) {
+      scamCounter++;
+    }
   }
-  if (input.value == letterKey[1][1]) {
-    scam++;
-  }
-  if (input.value == letterKey[2][1]) {
-    scam++;
-  }
-  if (input.value == letterKey[3][1]) {
-    scam++;
-  }
-  if (scam == 4) {
+  if (scamCounter >= 4) {
     for (let j = 0; j < listItem.length; j++) {
       listItem[0].style.color = "blue";
+    }
+  }
+  for (y = 0; y < tone.length; y++) {
+    if (input.value == tone[y][1]) {
+      toneCounter++;
+    }
+  }
+  if (toneCounter >= 4) {
+    for (let j = 0; j < listItem.length; j++) {
+      listItem[1].style.color = "blue";
     }
   }
 }
