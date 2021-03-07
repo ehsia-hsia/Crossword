@@ -57,7 +57,6 @@ function incorrectColorChange(square) {
 }
 
 //_______________LETTER CHECKER____________________
-let scam = 0;
 let listItem = document.getElementsByTagName("li");
 
 for (let i = 0; i < input.length; i++) {
@@ -70,18 +69,7 @@ for (let i = 0; i < input.length; i++) {
         if (input[i].value == letterKey[j][1]) {
           //if value of input match nested array 1, which hold letter
           correctColorChange(input[i]);
-          //list item change
-          if (input[i].value == letterKey[0][1]) {
-            scam++;
-          }
-          if (input[i].value == letterKey[1][1]) {
-            scam++;
-          }
-          if (scam >= 2) {
-            for (let j = 0; j < listItem.length; j++) {
-              listItem[0].style.color = "blue";
-            }
-          }
+          wordChecker(input[i]);
         } else {
           incorrectColorChange(input[i]);
         } //end letter check
@@ -89,6 +77,29 @@ for (let i = 0; i < input.length; i++) {
     } //loop2
   } //test function
 } //end input loop
+
+//list item change
+let scam = 0;
+
+function wordChecker(input) {
+  if (input.value == letterKey[0][1]) {
+    scam++;
+  }
+  if (input.value == letterKey[1][1]) {
+    scam++;
+  }
+  if (input.value == letterKey[2][1]) {
+    scam++;
+  }
+  if (input.value == letterKey[3][1]) {
+    scam++;
+  }
+  if (scam == 4) {
+    for (let j = 0; j < listItem.length; j++) {
+      listItem[0].style.color = "blue";
+    }
+  }
+}
 
 // //--------------------------CORRECT WORDS-----------------------------//
 
