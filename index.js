@@ -21,7 +21,7 @@ let A4_L4 = document.getElementById("across4L4Input");
 
 let input = document.getElementsByTagName("input");
 
-//Letter KEY
+//Letter and Word  KEY
 let letterKey = [
   [A1_L1, "s"],
   [A1_L2, "c"],
@@ -40,7 +40,12 @@ let letterKey = [
   [A4_L3, "e"],
   [A4_L4, "s"],
 ];
+
 //Word Key
+let scam = letterKey.slice(0, 4);
+let tone = letterKey.slice(4, 8);
+let arts = letterKey.slice(8, 12);
+let bees = letterKey.slice(12, 16);
 
 //________________COLOR CHANGES________________
 function correctColorChange(square) {
@@ -78,33 +83,54 @@ for (let i = 0; i < input.length; i++) {
   } //test function
 } //end input loop
 
-//list item change
-let scam = letterKey.slice(0, 4);
-let tone = letterKey.slice(4, 8);
+//_________LIST CHANGE______________
 
 let scamCounter = 0;
 let toneCounter = 0;
+let artsCounter = 0;
+let beesCounter = 0;
 
 function wordChecker(input) {
+  //Scam Check
+
   for (let y = 0; y < scam.length; y++) {
     if (input.value == scam[y][1]) {
       scamCounter++;
     }
   }
-  if (scamCounter >= 4) {
-    for (let j = 0; j < listItem.length; j++) {
-      listItem[0].style.color = "blue";
-    }
+  if (scamCounter === 4) {
+    listItem[0].style.color = "blue";
   }
-  for (y = 0; y < tone.length; y++) {
-    if (input.value == tone[y][1]) {
+
+  //Tone Check
+  for (z = 0; z < tone.length; z++) {
+    if (input.value == tone[z][1]) {
       toneCounter++;
     }
   }
-  if (toneCounter >= 4) {
-    for (let j = 0; j < listItem.length; j++) {
-      listItem[1].style.color = "blue";
+  if (toneCounter > 4) {
+    listItem[1].style.color = "blue";
+  }
+  //Arts Check
+  for (a = 0; a < arts.length; a++) {
+    if ((input = arts[a][0])) {
+      if (input.value == arts[a][1]) {
+        artsCounter++;
+        console.log(artsCounter);
+      }
     }
+  }
+  if (artsCounter > 12) {
+    listItem[2].style.color = "red";
+  }
+  //Bees Check
+  for (b = 0; b < bees.length; b++) {
+    if (input.value == bees[b][1]) {
+      beesCounter++;
+    }
+  }
+  if (beesCounter === 4) {
+    listItem[3].style.color = "blue";
   }
 }
 
