@@ -85,54 +85,50 @@ for (let i = 0; i < input.length; i++) {
 
 //_________LIST CHANGE______________
 
-let scamCounter = 0;
-let toneCounter = 0;
-let artsCounter = 0;
-let beesCounter = 0;
+// let scamCounter = 0;
+// let toneCounter = 0;
+// let artsCounter = 0;
+// let beesCounter = 0;
 
-function wordChecker(input) {
-  //Scam Check
+// function wordChecker(input) {//   //Scam Check
 
-  for (let y = 0; y < scam.length; y++) {
-    if (input.value == scam[y][1]) {
-      scamCounter++;
-    }
-  }
-  if (scamCounter === 4) {
-    listItem[0].style.color = "blue";
-  }
+//   for (let y = 0; y < scam.length; y++) {
+//     if (input.value.match(scam[y][1])) {
+//       scamCounter++;
+//     }
+//   }
+//   if (scamCounter === 4) {
+//     listItem[0].style.color = "blue";
+//   }
 
-  //Tone Check
-  for (z = 0; z < tone.length; z++) {
-    if (input.value == tone[z][1]) {
-      toneCounter++;
-    }
-  }
-  if (toneCounter > 4) {
-    listItem[1].style.color = "blue";
-  }
-  //Arts Check
-  for (a = 0; a < arts.length; a++) {
-    if ((input = arts[a][0])) {
-      if (input.value == arts[a][1]) {
-        artsCounter++;
-        console.log(artsCounter);
-      }
-    }
-  }
-  if (artsCounter > 12) {
-    listItem[2].style.color = "red";
-  }
-  //Bees Check
-  for (b = 0; b < bees.length; b++) {
-    if (input.value == bees[b][1]) {
-      beesCounter++;
-    }
-  }
-  if (beesCounter === 4) {
-    listItem[3].style.color = "blue";
-  }
-}
+//   //Tone Check
+//   for (z = 0; z < tone.length; z++) {
+//     if (input.value == tone[z][1] && input == tone[z][0]) {
+//       toneCounter++;
+//     }
+//   }
+//   if (toneCounter == 4) {
+//     listItem[1].style.color = "blue";
+//   }
+//   //Arts Check
+//   for (a = 0; a < arts.length; a++) {
+//     if ((input.value = arts[a][1] && input == arts[a][0])) {
+//       artsCounter++;
+//     }
+//   }
+//   if (artsCounter == 4) {
+//     listItem[2].style.color = "red";
+//   }
+//   //Bees Check
+//   for (b = 0; b < bees.length; b++) {
+//     if (input.value == bees[b][1]) {
+//       beesCounter++;
+//     }
+//   }
+//   if (beesCounter === 4) {
+//     listItem[3].style.color = "blue";
+//   }
+// }
 
 // //--------------------------CORRECT WORDS-----------------------------//
 
