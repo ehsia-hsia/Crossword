@@ -43,6 +43,10 @@ let letterKey = [
 
 //Word Key
 let scam = letterKey.slice(0, 4);
+for (let i = 0; i < scam.length; i++) {
+  let letter = scam[i].slice(1, 2);
+  let id = scam[i].slice(0, 1);
+}
 let tone = letterKey.slice(4, 8);
 let arts = letterKey.slice(8, 12);
 let bees = letterKey.slice(12, 16);
@@ -52,6 +56,7 @@ function correctColorChange(square) {
   square.style.color = "blue";
   square.style.backgroundColor = "lightblue";
 }
+
 function incorrectColorChange(square) {
   square.style.color = "red";
   square.style.backgroundColor = "white";
@@ -70,11 +75,11 @@ for (let i = 0; i < input.length; i++) {
     for (let j = 0; j < letterKey.length; j++) {
       // iterate through array
       if (input[i] == letterKey[j][0]) {
-        // match input to nested array 0, which holds id
+        // match input selected to nested array 0, which holds id of inputs
+
         if (input[i].value == letterKey[j][1]) {
-          //if value of input match nested array 1, which hold letter
+          //if value of input match nested array 1, which holds letter value
           correctColorChange(input[i]);
-          wordChecker(input[i]);
         } else {
           incorrectColorChange(input[i]);
         } //end letter check
@@ -82,6 +87,17 @@ for (let i = 0; i < input.length; i++) {
     } //loop2
   } //test function
 } //end input loop
+
+// for (let i = 0; i < input.length; i++) {
+//   input[i].addEventListener("keyup", wordChecker);
+//   function wordChecker() {
+
+//       if (input.value == letter) {
+//         document.body.backgroundColor = "pink";
+//       }
+//     }
+//   }
+// }
 
 //_________LIST CHANGE______________
 
