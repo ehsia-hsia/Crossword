@@ -55,6 +55,10 @@ let bees = letterKey.slice(12, 16);
 function correctColorChange(square) {
   square.style.color = "blue";
   square.style.backgroundColor = "lightblue";
+  congratsCounter++;
+  if (congratsCounter >= 16) {
+    document.body.style.backgroundColor = "pink";
+  }
 }
 
 function incorrectColorChange(square) {
@@ -68,7 +72,7 @@ function incorrectColorChange(square) {
 
 //_______________LETTER CHECKER____________________
 let listItem = document.getElementsByTagName("li");
-
+let congratsCounter = 0;
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", letterChecker);
   function letterChecker() {
