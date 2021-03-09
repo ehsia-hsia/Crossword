@@ -30,6 +30,7 @@ input:focus {
   width: 100%;
   box-shadow: 5px 5px 5px black;
   word-wrap: break-word;
+  color: black;
 }
 
 #clues h1 {
@@ -145,5 +146,9 @@ input:focus {
 
 .incorrectColor {
   color: red;
+  background-color: white;
+}
+
+.standardColor {
   background-color: white;
 }
