@@ -50,10 +50,14 @@ let scamCounter = 0;
 
 let tone = letterKey.slice(4, 8);
 let toneCounter = 0;
-let arts = letterKey.slice(8, 12);
-let bees = letterKey.slice(12, 16);
-//Word Key
 
+let arts = letterKey.slice(8, 12);
+let artsCounter = 0;
+let bees = letterKey.slice(12, 16);
+let beesCounter = 0;
+//__________WORD CHECKER____________
+
+//Scam
 for (let i = 0; i < scam.length; i++) {
   let letter = [
     scam[0].slice(1, 2),
@@ -70,12 +74,35 @@ for (let i = 0; i < scam.length; i++) {
         scamCounter;
       }
       if (scamCounter >= letter.length) {
-        listItem[0].classList.add("cluelistCorrect");
-      } else {
-        document.body.style.backgroundColor = "white";
+        listChange(listItem[0]);
       }
     }
   }
+}
+//Tone
+for (let i = 0; i < scam.length; i++) {
+  let letter = [
+    tone[0].slice(1, 2),
+    tone[1].slice(1, 2),
+    tone[2].slice(1, 2),
+    tone[3].slice(1, 2),
+  ];
+  for (let n = 0; n < input.length; n++) {
+    input[n].addEventListener("keyup", tester);
+    function tester() {
+      if (input[n].value == letter[i]) {
+        toneCounter++;
+      } else {
+        toneCounter;
+      }
+      if (toneCounter >= letter.length) {
+        listChange(listItem[1]);
+      }
+    }
+  }
+}
+function listChange(li) {
+  li.classList.add("cluelistCorrect");
 }
 
 //________________COLOR CHANGES and Status________________
@@ -94,6 +121,9 @@ function incorrectColorChange(square) {
 
 function congratsCounterStyles() {
   congratsCounter++;
+  if (congratsCounter == 0) {
+    status.textContent = "Status: ";
+  }
   if (congratsCounter >= input.length) {
     status.textContent = "Status: COMPLETE!";
   } else if (congratsCounter >= input.length / 2) {
@@ -159,6 +189,12 @@ let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
 function clearAll() {
   scamCounter = 0;
+  toneCounter = 0;
+  artsCounter = 0;
+  beesCounter = 0;
+  congratsCounter = 0;
+  status.textContent = "Status: ";
+
   let input = document.getElementsByTagName("input");
   for (let j = 0; j < listItem.length; j++) {
     listItem[j].classList.remove("cluelistCorrect");
@@ -166,8 +202,8 @@ function clearAll() {
   for (let i = 0; i < input.length; i++) {
     if (input[i].type == "text") {
       input[i].value = "";
-      input[i].classList.toggle("correctColor");
-      input[i].classList.toggle("incorrectColor");
+      input[i].classList.remove("correctColor");
+      input[i].classList.remove("incorrectColor");
     }
   }
 }
