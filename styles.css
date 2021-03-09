@@ -3,6 +3,7 @@ body {
 }
 input {
   caret-color: transparent;
+  color: black;
 }
 /* input:focus {
   background-color: rgb(239, 239, 239);
@@ -100,9 +101,9 @@ input {
   margin-top: 0;
   box-shadow: 5px 5px 5px black;
 }
-input:focus {
+/* input:focus {
   color: white;
-}
+} */
 * {
   height: 100%;
   font-size: 2rem;
@@ -127,4 +128,14 @@ input:focus {
 
 #across1L4Input {
   grid-column: 4;
+}
+
+.correctColor {
+  color: blue;
+  background-color: lightblue;
+}
+
+.incorrectColor {
+  color: red;
+  background-color: white;
 }

@@ -53,17 +53,19 @@ let bees = letterKey.slice(12, 16);
 
 //________________COLOR CHANGES________________
 function correctColorChange(square) {
-  square.style.color = "blue";
-  square.style.backgroundColor = "lightblue";
+  square.classList.add("correctColor");
+}
+function congratsCounterStyles() {
   congratsCounter++;
-  if (congratsCounter >= 16) {
+  if (congratsCounter >= input.length) {
     document.body.style.backgroundColor = "pink";
+  } else if (congratsCounter >= input.length / 2) {
+    document.body.style.backgroundColor = "green";
   }
 }
 
 function incorrectColorChange(square) {
-  square.style.color = "red";
-  square.style.backgroundColor = "white";
+  square.classList.add("incorrectColor");
   square.addEventListener("focus", clearletter);
   function clearletter() {
     square.value = "";
@@ -84,6 +86,7 @@ for (let i = 0; i < input.length; i++) {
         if (input[i].value == letterKey[j][1]) {
           //if value of input match nested array 1, which holds letter value
           correctColorChange(input[i]);
+          congratsCounterStyles();
         } else {
           incorrectColorChange(input[i]);
         } //end letter check
@@ -91,6 +94,24 @@ for (let i = 0; i < input.length; i++) {
     } //loop2
   } //test function
 } //end input loop
+
+let revealButton = document.getElementById("revealAll");
+revealButton.addEventListener("click", revealAll);
+function revealAll() {
+  for (let i = 0; i < input.length; i++) {
+    for (let j = 0; j < letterKey.length; j++) {
+      // iterate through array
+      if (input == letterKey[j][0]) {
+        // match input selected to nested array 0, which holds id of inputs
+
+        if (!input[i].value == letterKey[j][1]) {
+          //if value of input match nested array 1, which holds letter value
+          input[j].value = letterKey[j][1];
+        }
+      }
+    }
+  }
+}
 
 // for (let i = 0; i < input.length; i++) {
 //   input[i].addEventListener("keyup", wordChecker);
