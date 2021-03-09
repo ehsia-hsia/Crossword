@@ -50,6 +50,112 @@ function checkLetter() {
     bees4 = true;
   }
 }
+let scam = letterKey.slice(0, 4);
+let scamCounter = 0;
+
+let tone = letterKey.slice(4, 8);
+let toneCounter = 0;
+
+let arts = letterKey.slice(8, 12);
+let artsCounter = 0;
+
+let bees = letterKey.slice(12, 16);
+let beesCounter = 0;
+//__________WORD CHECKER and List Change____________
+
+//Scam
+for (let i = 0; i < scam.length; i++) {
+  let scamArr = [
+    scam[0].slice(1, 2),
+    scam[1].slice(1, 2),
+    scam[2].slice(1, 2),
+    scam[3].slice(1, 2),
+  ];
+  for (let n = 0; n < input.length; n++) {
+    input[n].addEventListener("keyup", scamCheck);
+    function scamCheck() {
+      if (input[n].value == scamArr[i]) {
+        scamCounter++;
+        console.log(artsCounter);
+      } else {
+        scamCounter;
+      }
+      if (scamCounter >= scamArr.length) {
+        listChange(listItem[0]);
+      }
+    }
+  }
+}
+//Tone
+for (let i = 0; i < tone.length; i++) {
+  let toneArr = [
+    tone[0].slice(1, 2),
+    tone[1].slice(1, 2),
+    tone[2].slice(1, 2),
+    tone[3].slice(1, 2),
+  ];
+  for (let n = 0; n < letterKey.length; n++) {
+    letterKey[n][0].addEventListener("keyup", toneCheck);
+    function toneCheck() {
+      if (input[n].value == toneArr[i]) {
+        toneCounter++;
+        console.log(artsCounter);
+      } else {
+        toneCounter;
+      }
+      if (toneCounter >= toneArr.length) {
+        listChange(listItem[1]);
+      }
+    }
+  }
+}
+//Arts
+for (let i = 0; i < arts.length; i++) {
+  let artsArr = [
+    arts[0].slice(1, 2),
+    arts[1].slice(1, 2),
+    arts[2].slice(1, 2),
+    arts[3].slice(1, 2),
+  ];
+  for (let n = 0; n < input.length; n++) {
+    input[n].addEventListener("keyup", artscheck);
+    function artscheck() {
+      if (input[n].value == artsArr[i]) {
+        artsCounter++;
+        console.log(artsCounter);
+      } else {
+        artsCounter;
+      }
+
+      if (artsCounter >= 4) {
+        listChange(listItem[2]);
+      }
+    }
+  }
+}
+
+//bees
+for (let i = 0; i < scam.length; i++) {
+  let beesArr = [
+    bees[0].slice(1, 2),
+    bees[1].slice(1, 2),
+    bees[2].slice(1, 2),
+    bees[3].slice(1, 2),
+  ];
+  for (let n = 0; n < input.length; n++) {
+    input[n].addEventListener("keyup", tester);
+    function tester() {
+      if (input[n].value == beesArr[i]) {
+        beesCounter++;
+      } else {
+        beesCounter;
+      }
+      if (beesCounter >= beesArr.length) {
+        listChange(listItem[3]);
+      }
+    }
+  }
+}
 
 // ____1 ACROSS: SCAM____
 

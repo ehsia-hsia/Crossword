@@ -25,6 +25,8 @@ let list = document.getElementsByTagName("ol");
 
 let input = document.getElementsByTagName("input");
 
+///TEST
+
 //Letter and Word  KEY
 let letterKey = [
   [A1_L1, "s"],
@@ -44,113 +46,6 @@ let letterKey = [
   [A4_L3, "e"],
   [A4_L4, "s"],
 ];
-
-let scam = letterKey.slice(0, 4);
-let scamCounter = 0;
-
-let tone = letterKey.slice(4, 8);
-let toneCounter = 0;
-
-let arts = letterKey.slice(8, 12);
-let artsCounter = 0;
-
-let bees = letterKey.slice(12, 16);
-let beesCounter = 0;
-//__________WORD CHECKER and List Change____________
-
-//Scam
-for (let i = 0; i < scam.length; i++) {
-  let scamArr = [
-    scam[0].slice(1, 2),
-    scam[1].slice(1, 2),
-    scam[2].slice(1, 2),
-    scam[3].slice(1, 2),
-  ];
-  for (let n = 0; n < input.length; n++) {
-    input[n].addEventListener("keyup", scamCheck);
-    function scamCheck() {
-      if (input[n].value == scamArr[i]) {
-        scamCounter++;
-        console.log(artsCounter);
-      } else {
-        scamCounter;
-      }
-      if (scamCounter >= scamArr.length) {
-        listChange(listItem[0]);
-      }
-    }
-  }
-}
-//Tone
-for (let i = 0; i < tone.length; i++) {
-  let toneArr = [
-    tone[0].slice(1, 2),
-    tone[1].slice(1, 2),
-    tone[2].slice(1, 2),
-    tone[3].slice(1, 2),
-  ];
-  for (let n = 0; n < input.length; n++) {
-    input[n].addEventListener("keyup", toneCheck);
-    function toneCheck() {
-      if (input[n].value == toneArr[i]) {
-        toneCounter++;
-        console.log(artsCounter);
-      } else {
-        toneCounter;
-      }
-      if (toneCounter >= toneArr.length) {
-        listChange(listItem[1]);
-      }
-    }
-  }
-}
-//Arts
-for (let i = 0; i < arts.length; i++) {
-  let artsArr = [
-    arts[0].slice(1, 2),
-    arts[1].slice(1, 2),
-    arts[2].slice(1, 2),
-    arts[3].slice(1, 2),
-  ];
-  for (let n = 0; n < input.length; n++) {
-    input[n].addEventListener("keyup", beecheck);
-    function beecheck() {
-      if (input[n].value == artsArr[i]) {
-        artsCounter++;
-        console.log(artsCounter);
-      } else {
-        artsCounter;
-      }
-
-      if (artsCounter >= 4) {
-        listChange(listItem[2]);
-      }
-    }
-  }
-}
-
-//bees
-for (let i = 0; i < scam.length; i++) {
-  let beesArr = [
-    bees[0].slice(1, 2),
-    bees[1].slice(1, 2),
-    bees[2].slice(1, 2),
-    bees[3].slice(1, 2),
-  ];
-  for (let n = 0; n < input.length; n++) {
-    input[n].addEventListener("keyup", tester);
-    function tester() {
-      if (input[n].value == beesArr[i]) {
-        beesCounter++;
-      } else {
-        beesCounter;
-      }
-      if (beesCounter >= beesArr.length) {
-        listChange(listItem[3]);
-      }
-    }
-  }
-}
 
 function listChange(li) {
   li.classList.add("cluelistCorrect");
@@ -222,6 +117,9 @@ for (let i = 0; i < input.length; i++) {
           //if value of input match nested array 1, which holds letter value
           correctColorChange(input[i]);
           congratsCounterStyles();
+          wordTest();
+
+          // pushit(input[i].value);
         } else {
           incorrectColorChange(input[i]);
         } //end letter check
@@ -230,6 +128,26 @@ for (let i = 0; i < input.length; i++) {
   } //test function
 } //end input loop
 
+function wordTest() {
+  let scam =
+    input[0].value.toString() +
+    input[1].value.toString() +
+    input[2].value.toString() +
+    input[3].value.toString();
+  if (scam == "scam") {
+    listChange(listItem[0]);
+  }
+  console.log(scam);
+  let tone =
+    input[4].value.toString() +
+    input[5].value.toString() +
+    input[6].value.toString() +
+    input[7].value.toString();
+  if (tone == "tone") {
+    listChange(listItem[1]);
+  }
+  console.log(tone);
+}
 //______BUTTONS_____________
 let revealButton = document.getElementById("revealAll");
 revealButton.addEventListener("click", revealAll);
