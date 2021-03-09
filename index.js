@@ -25,8 +25,6 @@ let list = document.getElementsByTagName("ol");
 
 let input = document.getElementsByTagName("input");
 
-///TEST
-
 //Letter and Word  KEY
 let letterKey = [
   [A1_L1, "s"],
@@ -64,16 +62,18 @@ function incorrectColorChange(square) {
     square.value = "";
   }
 }
-
+let congratsCounter = 0;
 function congratsCounterStyles() {
-  congratsCounter++;
-  if (congratsCounter == 0) {
-    status.textContent = "Status: ";
-  }
   if (congratsCounter >= input.length) {
     status.textContent = "Status: COMPLETE!";
-  } else if (congratsCounter >= input.length / 2) {
+  } else if (congratsCounter >= input.length * 0.6) {
+    status.textContent = "Status: Almost complete...";
+  } else if (congratsCounter >= input.length * 0.5) {
     status.textContent = "Status: 50% complete...";
+  } else if (congratsCounter >= input.length * 0.25) {
+    status.textContent = `Status: 25% complete... `;
+  } else if (congratsCounter == 0) {
+    status.textContent = "Status: ";
   }
 }
 //_________CURSOR TO NEXT___________
@@ -104,7 +104,7 @@ for (let i = 0; i < input.length; i++) {
 }
 
 //_______________LETTER CHECKER____________________
-let congratsCounter = 0;
+
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", letterChecker);
   function letterChecker() {
@@ -112,22 +112,22 @@ for (let i = 0; i < input.length; i++) {
       // iterate through array
       if (input[i] == letterKey[j][0]) {
         // match input selected to nested array 0, which holds id of inputs
-
         if (input[i].value == letterKey[j][1]) {
           //if value of input match nested array 1, which holds letter value
           correctColorChange(input[i]);
-          congratsCounterStyles();
+          congratsCounter++;
           wordTest();
-
-          // pushit(input[i].value);
         } else {
           incorrectColorChange(input[i]);
         } //end letter check
       } //end input id check
     } //loop2
+    console.log(congratsCounter);
+    congratsCounterStyles();
   } //test function
 } //end input loop
 
+//___________WORD CHECK_________________
 function wordTest() {
   let scam =
     input[0].value.toString() +
@@ -137,7 +137,6 @@ function wordTest() {
   if (scam == "scam") {
     listChange(listItem[0]);
   }
-  console.log(scam);
   let tone =
     input[4].value.toString() +
     input[5].value.toString() +
@@ -146,24 +145,35 @@ function wordTest() {
   if (tone == "tone") {
     listChange(listItem[1]);
   }
-  console.log(tone);
+  let arts =
+    input[8].value.toString() +
+    input[9].value.toString() +
+    input[10].value.toString() +
+    input[11].value.toString();
+  if (arts == "arts") {
+    listChange(listItem[2]);
+  }
+  let bees =
+    input[12].value.toString() +
+    input[13].value.toString() +
+    input[14].value.toString() +
+    input[15].value.toString();
+  if (bees == "bees") {
+    listChange(listItem[3]);
+  }
 }
 //______BUTTONS_____________
-let revealButton = document.getElementById("revealAll");
-revealButton.addEventListener("click", revealAll);
-function revealAll() {}
+// let revealButton = document.getElementById("revealAll");
+// revealButton.addEventListener("click", revealAll);
+
+// function revealAll() {}
 
 //Clear
 let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
 function clearAll() {
-  scamCounter = 0;
-  toneCounter = 0;
-  artsCounter = 0;
-  beesCounter = 0;
   congratsCounter = 0;
   status.textContent = "Status: ";
-
   let input = document.getElementsByTagName("input");
   for (let j = 0; j < listItem.length; j++) {
     listItem[j].classList.remove("cluelistCorrect");
