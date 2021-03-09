@@ -20,6 +20,8 @@ let A4_L3 = document.getElementById("across4L3Input");
 let A4_L4 = document.getElementById("across4L4Input");
 
 let status = document.querySelector(".status");
+let listItem = document.getElementsByTagName("li");
+let list = document.getElementsByTagName("ol");
 
 let input = document.getElementsByTagName("input");
 
@@ -43,9 +45,15 @@ let letterKey = [
   [A4_L4, "s"],
 ];
 
-//Word Key
-let scamCounter = 0;
 let scam = letterKey.slice(0, 4);
+let scamCounter = 0;
+
+let tone = letterKey.slice(4, 8);
+let toneCounter = 0;
+let arts = letterKey.slice(8, 12);
+let bees = letterKey.slice(12, 16);
+//Word Key
+
 for (let i = 0; i < scam.length; i++) {
   let letter = [
     scam[0].slice(1, 2),
@@ -62,15 +70,13 @@ for (let i = 0; i < scam.length; i++) {
         scamCounter;
       }
       if (scamCounter >= letter.length) {
-        document.body.style.backgroundColor = "pink";
+        listItem[0].classList.add("cluelistCorrect");
+      } else {
+        document.body.style.backgroundColor = "white";
       }
     }
   }
 }
-
-let tone = letterKey.slice(4, 8);
-let arts = letterKey.slice(8, 12);
-let bees = letterKey.slice(12, 16);
 
 //________________COLOR CHANGES and Status________________
 function correctColorChange(square) {
@@ -122,7 +128,6 @@ for (let i = 0; i < input.length; i++) {
 }
 
 //_______________LETTER CHECKER____________________
-let listItem = document.getElementsByTagName("li");
 let congratsCounter = 0;
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", letterChecker);
@@ -153,10 +158,10 @@ function revealAll() {}
 let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
 function clearAll() {
+  scamCounter = 0;
   let input = document.getElementsByTagName("input");
-  let listItem = document.getElementsByTagName("li");
   for (let j = 0; j < listItem.length; j++) {
-    listItem[j].style.color = "black";
+    listItem[j].classList.remove("cluelistCorrect");
   }
   for (let i = 0; i < input.length; i++) {
     if (input[i].type == "text") {

@@ -1,5 +1,6 @@
 body {
   margin: auto;
+  background-color: "white";
 }
 input {
   caret-color: transparent;
@@ -45,6 +46,10 @@ input:focus {
   margin-top: 0;
   text-align: left;
   text-transform: none;
+}
+
+.cluelistCorrect {
+  color: blue;
 }
 .status {
   color: black;
