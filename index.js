@@ -44,11 +44,30 @@ let letterKey = [
 ];
 
 //Word Key
+let scamCounter = 0;
 let scam = letterKey.slice(0, 4);
 for (let i = 0; i < scam.length; i++) {
-  let letter = scam[i].slice(1, 2);
-  let id = scam[i].slice(0, 1);
+  let letter = [
+    scam[0].slice(1, 2),
+    scam[1].slice(1, 2),
+    scam[2].slice(1, 2),
+    scam[3].slice(1, 2),
+  ];
+  for (let n = 0; n < input.length; n++) {
+    input[n].addEventListener("keyup", tester);
+    function tester() {
+      if (input[n].value == letter[i]) {
+        scamCounter++;
+      } else {
+        scamCounter;
+      }
+      if (scamCounter >= letter.length) {
+        document.body.style.backgroundColor = "pink";
+      }
+    }
+  }
 }
+
 let tone = letterKey.slice(4, 8);
 let arts = letterKey.slice(8, 12);
 let bees = letterKey.slice(12, 16);
@@ -130,6 +149,7 @@ let revealButton = document.getElementById("revealAll");
 revealButton.addEventListener("click", revealAll);
 function revealAll() {}
 
+//Clear
 let clearButton = document.getElementById("clearAll");
 clearButton.addEventListener("click", clearAll);
 function clearAll() {
