@@ -53,18 +53,10 @@ let tone = letterKey.slice(4, 8);
 let arts = letterKey.slice(8, 12);
 let bees = letterKey.slice(12, 16);
 
-//________________COLOR CHANGES________________
+//________________COLOR CHANGES and Status________________
 function correctColorChange(square) {
   square.classList.add("correctColor");
   square.classList.remove("incorrectColor");
-}
-function congratsCounterStyles() {
-  congratsCounter++;
-  if (congratsCounter >= input.length) {
-    status.textContent = "Status: COMPLETE!";
-  } else if (congratsCounter >= input.length / 2) {
-    status.textContent = "Status: 50% complete...";
-  }
 }
 
 function incorrectColorChange(square) {
@@ -75,9 +67,18 @@ function incorrectColorChange(square) {
   }
 }
 
+function congratsCounterStyles() {
+  congratsCounter++;
+  if (congratsCounter >= input.length) {
+    status.textContent = "Status: COMPLETE!";
+  } else if (congratsCounter >= input.length / 2) {
+    status.textContent = "Status: 50% complete...";
+  }
+}
+//_________CURSOR TO NEXT___________
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", cursorMove);
-  function cursorMove() {
+  function cursorMove(e) {
     let nextTarg = input[i];
     let maxLength = nextTarg.attributes["maxlength"].value;
     let myLength = nextTarg.value.length;
@@ -91,8 +92,13 @@ for (let i = 0; i < input.length; i++) {
         }
       }
     }
+    let last = nextTarg.previousElementSibling;
+    if (e.key == "Backspace") {
+      last == null ? nextTarg.focus() : last.focus();
+    }
   }
 }
+
 //_______________LETTER CHECKER____________________
 let listItem = document.getElementsByTagName("li");
 let congratsCounter = 0;
