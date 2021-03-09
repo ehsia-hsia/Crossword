@@ -19,6 +19,8 @@ let A4_L2 = document.getElementById("across4L2Input");
 let A4_L3 = document.getElementById("across4L3Input");
 let A4_L4 = document.getElementById("across4L4Input");
 
+let status = document.querySelector(".status");
+
 let input = document.getElementsByTagName("input");
 
 //Letter and Word  KEY
@@ -54,13 +56,14 @@ let bees = letterKey.slice(12, 16);
 //________________COLOR CHANGES________________
 function correctColorChange(square) {
   square.classList.add("correctColor");
+  square.classList.remove("incorrectColor");
 }
 function congratsCounterStyles() {
   congratsCounter++;
   if (congratsCounter >= input.length) {
-    document.body.style.backgroundColor = "pink";
+    status.textContent = "Status: COMPLETE!";
   } else if (congratsCounter >= input.length / 2) {
-    document.body.style.backgroundColor = "green";
+    status.textContent = "Status: 50% complete...";
   }
 }
 
@@ -72,6 +75,24 @@ function incorrectColorChange(square) {
   }
 }
 
+for (let i = 0; i < input.length; i++) {
+  input[i].addEventListener("keyup", cursorMove);
+  function cursorMove() {
+    let nextTarg = input[i];
+    let maxLength = nextTarg.attributes["maxlength"].value;
+    let myLength = nextTarg.value.length;
+    if (myLength >= 1) {
+      let next = nextTarg;
+      while ((nextTarg = nextTarg.nextElementSibling)) {
+        if (nextTarg == null) break;
+        if (nextTarg.tagName.toLowerCase() == "input") {
+          nextTarg.focus();
+          break;
+        }
+      }
+    }
+  }
+}
 //_______________LETTER CHECKER____________________
 let listItem = document.getElementsByTagName("li");
 let congratsCounter = 0;
