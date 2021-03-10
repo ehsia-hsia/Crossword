@@ -24,6 +24,7 @@ let A4_L4 = document.getElementById("across4L4Input");
 let status = document.querySelector(".status");
 let listItem = document.getElementsByTagName("li");
 let list = document.getElementsByTagName("ol");
+let checkIcon = document.querySelectorAll(".checkIcon");
 
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
@@ -108,9 +109,18 @@ for (let i = 0; i < input.length; i++) {
         }
       }
     }
-    let last = nextTarg.previousElementSibling;
+
     if (e.key == "Backspace") {
-      last == nextTarg.null ? (nextTarg = input[i]) : last.focus();
+      while ((nextTarg = nextTarg.previousElementSibling)) {
+        if (nextTarg == null) break;
+        if (nextTarg.tagName.toLowerCase() == "input") {
+          nextTarg.focus();
+          break;
+        }
+        if (nextTarg.previousElementSibling == null) {
+          break;
+        }
+      }
     }
   }
 }
@@ -148,6 +158,7 @@ function wordTest() {
     input[3].value.toString();
   if (scam == "scam") {
     listChange(listItem[0]);
+    removeIcon(checkIcon[0]);
   }
   let tone =
     input[4].value.toString() +
@@ -156,6 +167,7 @@ function wordTest() {
     input[7].value.toString();
   if (tone == "tone") {
     listChange(listItem[1]);
+    removeIcon(checkIcon[1]);
   }
   let arts =
     input[8].value.toString() +
@@ -164,6 +176,7 @@ function wordTest() {
     input[11].value.toString();
   if (arts == "arts") {
     listChange(listItem[2]);
+    removeIcon(checkIcon[2]);
   }
   let bees =
     input[12].value.toString() +
@@ -172,7 +185,12 @@ function wordTest() {
     input[15].value.toString();
   if (bees == "bees") {
     listChange(listItem[3]);
+    removeIcon(checkIcon[3]);
   }
+}
+
+function removeIcon(icon) {
+  icon.classList.remove("hideIcon");
 }
 //______BUTTONS_____________
 //Reveal
@@ -215,7 +233,7 @@ for (let i = 0; i < listItem.length; i++) {
     }
   }
 }
-
+//_____MODAL ON COMPLETE______________
 const closeModal = function () {
   overlay.classList.add("hidden");
   congratsCounter = 0;

@@ -39,7 +39,7 @@
       <button class="close-modal">&times;</button>
     </div>
     <div class="overlay hidden">
-      <p>hello</p>
+      <p>Congrats, you won!</p>
       <p>X</p>
     </div>
     <div class="gridlayout">
@@ -47,34 +47,49 @@
       <div id="clues">
         <h1>Clues</h1>
         <ol class="clueslist">
+          <h3>Across</h3>
+          <li id="scamclue">
+            MLM's <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+          <li id="toneclue">
+            "Don't take that ____ with me"
+            <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+          <li id="artsclue">The "A" of a B.A.</li>
+          <li id="beesclue">Flower lovers</li>
+          <h3>Across</h3>
           <li id="scamclue">MLM's</li>
           <li id="toneclue">"Don't take that ____ with me"</li>
           <li id="artsclue">The "A" of a B.A.</li>
           <li id="beesclue">Flower lovers</li>
-          <p class="status">Status:</p>
         </ol>
       </div>
       <div class="buttonSection">
         <!-- <p id="congrats">Done?</p> -->
         <button id="clearAll">Clear All</button>
         <button id="revealAll">Reveal All</button>
+        <p class="status">Status:</p>
       </div>
       <div class="crosswordGrid">
-        <input type="text" id="across1L1Input" maxlength="1;" placeholder="1" />
-
+        <label for="across1L1Input">1</label>
+        <input type="text" id="across1L1Input" maxlength="1;" />
         <input type="text" id="across1L2Input" maxlength="1;" />
         <input type="text" id="across1L3Input" maxlength="1;" />
         <input type="text" id="across1L4Input" maxlength="1;" />
 
+        <label class="label" for="across2L1Input">2</label>
         <input type="text" id="across2L1Input" maxlength="1;" />
         <input type="text" id="across2L2Input" maxlength="1;" />
         <input type="text" id="across2L3Input" maxlength="1;" />
         <input type="text" id="across2L4Input" maxlength="1;" />
 
+        <label class="label1" for="across3L1Input">3</label>
         <input type="text" id="across3L1Input" maxlength="1;" />
         <input type="text" id="across3L2Input" maxlength="1;" />
         <input type="text" id="across3L3Input" maxlength="1;" />
         <input type="text" id="across3L4Input" maxlength="1;" />
+
+        <label class="label2" for="across3L1Input">4</label>
 
         <input type="text" id="across4L1Input" maxlength="1;" />
         <input type="text" id="across4L2Input" maxlength="1;" />
