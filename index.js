@@ -163,6 +163,7 @@ function wordTest() {
   }
 }
 //______BUTTONS_____________
+//Reveal
 let revealButton = document.getElementById("revealAll");
 revealButton.addEventListener("click", revealAll);
 
@@ -170,6 +171,7 @@ function revealAll() {
   for (let j = 0; j < letterKey.length; j++) {
     if (letterKey[j][0].value !== letterKey[j][1]) {
       letterKey[j][0].value = letterKey[j][1];
+      letterKey[j][0].classList.add("blackLetter");
     }
   }
 }
@@ -189,6 +191,7 @@ function clearAll() {
       input[i].value = "";
       input[i].classList.remove("correctColor");
       input[i].classList.remove("incorrectColor");
+      input[i].classList.remove("blackLetter");
     }
   }
 }
