@@ -1,3 +1,5 @@
+("use strict");
+
 //VARIABLES
 let A1_L1 = document.getElementById("across1L1Input");
 let A1_L2 = document.getElementById("across1L2Input");
@@ -23,7 +25,16 @@ let status = document.querySelector(".status");
 let listItem = document.getElementsByTagName("li");
 let list = document.getElementsByTagName("ol");
 
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+
 let input = document.getElementsByTagName("input");
+
+let clearButton = document.getElementById("clearAll");
+clearButton.addEventListener("click", clearAll);
+
+let revealButton = document.getElementById("revealAll");
+revealButton.addEventListener("click", revealAll);
 
 //Letter and Word  KEY
 let letterKey = [
@@ -165,8 +176,6 @@ function wordTest() {
 }
 //______BUTTONS_____________
 //Reveal
-let revealButton = document.getElementById("revealAll");
-revealButton.addEventListener("click", revealAll);
 
 function revealAll() {
   for (let j = 0; j < letterKey.length; j++) {
@@ -178,8 +187,7 @@ function revealAll() {
 }
 
 //Clear
-let clearButton = document.getElementById("clearAll");
-clearButton.addEventListener("click", clearAll);
+
 function clearAll() {
   congratsCounter = 0;
   status.textContent = "Status: ";
@@ -208,35 +216,21 @@ for (let i = 0; i < listItem.length; i++) {
   }
 }
 
-("use strict");
-
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
-const btnsOpenModal = document.querySelectorAll(".show-modal");
-
 const closeModal = function () {
-  modal.classList.add("hidden");
   overlay.classList.add("hidden");
+  congratsCounter = 0;
 };
 
 const openModal = function () {
-  modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
-
-for (let i = 0; i < btnsOpenModal.length; i++) {
-  btnsOpenModal[i].addEventListener("click", openModal);
-}
-
-btnCloseModal.addEventListener("click", closeModal);
 
 overlay.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", function (e) {
   ///creates object
   console.log(e.key);
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+  if (e.key === "Escape") {
     closeModal();
   }
 });
