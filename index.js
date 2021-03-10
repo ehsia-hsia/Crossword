@@ -163,10 +163,16 @@ function wordTest() {
   }
 }
 //______BUTTONS_____________
-// let revealButton = document.getElementById("revealAll");
-// revealButton.addEventListener("click", revealAll);
+let revealButton = document.getElementById("revealAll");
+revealButton.addEventListener("click", revealAll);
 
-// function revealAll() {}
+function revealAll() {
+  for (let j = 0; j < letterKey.length; j++) {
+    if (letterKey[j][0].value !== letterKey[j][1]) {
+      letterKey[j][0].value = letterKey[j][1];
+    }
+  }
+}
 
 //Clear
 let clearButton = document.getElementById("clearAll");
