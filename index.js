@@ -187,6 +187,42 @@ function wordTest() {
     listChange(listItem[3]);
     removeIcon(checkIcon[3]);
   }
+  let stab =
+    input[0].value.toString() +
+    input[4].value.toString() +
+    input[8].value.toString() +
+    input[12].value.toString();
+  if (stab == "stab") {
+    listChange(listItem[4]);
+    removeIcon(checkIcon[4]);
+  }
+  let core =
+    input[1].value.toString() +
+    input[5].value.toString() +
+    input[9].value.toString() +
+    input[13].value.toString();
+  if (core == "core") {
+    listChange(listItem[5]);
+    removeIcon(checkIcon[5]);
+  }
+  let ante =
+    input[2].value.toString() +
+    input[6].value.toString() +
+    input[10].value.toString() +
+    input[14].value.toString();
+  if (ante == "ante") {
+    listChange(listItem[6]);
+    removeIcon(checkIcon[6]);
+  }
+  let mess =
+    input[3].value.toString() +
+    input[7].value.toString() +
+    input[11].value.toString() +
+    input[15].value.toString();
+  if (mess == "mess") {
+    listChange(listItem[7]);
+    removeIcon(checkIcon[7]);
+  }
 }
 
 function removeIcon(icon) {
@@ -222,17 +258,17 @@ function clearAll() {
     }
   }
 }
-for (let i = 0; i < listItem.length; i++) {
-  listItem[i].addEventListener("click", clueHighlight);
-  function clueHighlight() {
-    if (listItem[i] == listItem[0]) {
-      input[0].style.borderColor = "pink";
-      input[1].style.borderColor = "pink";
-      input[2].style.borderColor = "pink";
-      input[3].style.borderColor = "pink";
-    }
-  }
-}
+// for (let i = 0; i < listItem.length; i++) {
+//   listItem[i].addEventListener("click", clueHighlight);
+//   function clueHighlight() {
+//     if (listItem[i] == listItem[0]) {
+//       input[0].style.borderColor = "pink";
+//       input[1].style.borderColor = "pink";
+//       input[2].style.borderColor = "pink";
+//       input[3].style.borderColor = "pink";
+//     }
+//   }
+// }
 //_____MODAL ON COMPLETE______________
 const closeModal = function () {
   overlay.classList.add("hidden");

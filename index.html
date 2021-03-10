@@ -43,7 +43,7 @@
       <p>X</p>
     </div>
     <div class="gridlayout">
-      <h1 class="heading">Across Crossword</h1>
+      <h1 class="heading">Crossword</h1>
       <div id="clues">
         <h1>Clues</h1>
         <ol class="clueslist">
@@ -55,13 +55,27 @@
             "Don't take that ____ with me"
             <i class="fas fa-check checkIcon hideIcon"></i>
           </li>
-          <li id="artsclue">The "A" of a B.A.</li>
-          <li id="beesclue">Flower lovers</li>
-          <h3>Across</h3>
-          <li id="scamclue">MLM's</li>
-          <li id="toneclue">"Don't take that ____ with me"</li>
-          <li id="artsclue">The "A" of a B.A.</li>
-          <li id="beesclue">Flower lovers</li>
+          <li id="artsclue">
+            The "A" of a B.A. <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+          <li id="beesclue">
+            Flower lovers <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+        </ol>
+        <ol class="clueslist">
+          <h3>Down</h3>
+          <li id="scamclue">
+            Brutus to Julius <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+          <li id="toneclue">
+            Center of the earth <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+          <li id="artsclue">
+            Pay to play <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
+          <li id="beesclue">
+            "She's a hot ___" <i class="fas fa-check checkIcon hideIcon"></i>
+          </li>
         </ol>
       </div>
       <div class="buttonSection">
@@ -71,26 +85,30 @@
         <p class="status">Status:</p>
       </div>
       <div class="crosswordGrid">
-        <label for="across1L1Input">1</label>
+        <!--ROW 1-->
+        <label id="AcrossDown1" for="across1L1Input">1</label>
         <input type="text" id="across1L1Input" maxlength="1;" />
+        <label id="Down2" for="across1L2Input">2</label>
         <input type="text" id="across1L2Input" maxlength="1;" />
-        <input type="text" id="across1L3Input" maxlength="1;" />
-        <input type="text" id="across1L4Input" maxlength="1;" />
+        <label id="Down3" for="across1L3Inputt">3</label>
 
-        <label class="label" for="across2L1Input">2</label>
+        <input type="text" id="across1L3Input" maxlength="1;" />
+        <label id="Down4" for="across1L4Inputt">4</label>
+        <input type="text" id="across1L4Input" maxlength="1;" />
+        <!--Row 2-->
+        <label id="AcrossDown2" for="across2L1Input">2</label>
         <input type="text" id="across2L1Input" maxlength="1;" />
         <input type="text" id="across2L2Input" maxlength="1;" />
         <input type="text" id="across2L3Input" maxlength="1;" />
         <input type="text" id="across2L4Input" maxlength="1;" />
-
-        <label class="label1" for="across3L1Input">3</label>
+        <!--Row 3-->
+        <label id="AcrossDown3" for="across3L1Input">3</label>
         <input type="text" id="across3L1Input" maxlength="1;" />
         <input type="text" id="across3L2Input" maxlength="1;" />
         <input type="text" id="across3L3Input" maxlength="1;" />
         <input type="text" id="across3L4Input" maxlength="1;" />
-
-        <label class="label2" for="across3L1Input">4</label>
-
+        <!--Row 4-->
+        <label id="AcrossDown4" for="across4L1Input">4</label>
         <input type="text" id="across4L1Input" maxlength="1;" />
         <input type="text" id="across4L2Input" maxlength="1;" />
         <input type="text" id="across4L3Input" maxlength="1;" />

@@ -20,22 +20,34 @@ input[type="text"]::placeholder {
   height: 100%;
   margin-left: 100px;
 }
-label,
-.label1,
-.label,
-.label2 {
+label {
   position: absolute;
-  left: 4px;
 }
-.label {
-  top: 100px;
+#AcrossDown1,
+#AcrossDown2,
+#AcrossDown3,
+#AcrossDown4 {
+  left: 5px;
 }
-.label1 {
+#AcrossDown2 {
+  top: 105px;
+}
+#AcrossDown3 {
   top: 205px;
 }
-.label2 {
+#AcrossDown4 {
   top: 310px;
 }
+#Down2 {
+  left: 105px;
+}
+#Down3 {
+  left: 205px;
+}
+#Down4 {
+  left: 305px;
+}
+
 .gridlayout {
   display: grid;
   grid-template-columns: 400px 5fr;
@@ -43,9 +55,9 @@ label,
   grid-gap: 1rem;
   margin: auto;
   margin-top: 0;
+  margin-bottom: 10%;
   padding: 5%;
   padding-top: 0;
-  border: solid;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -56,7 +68,7 @@ label,
   grid-row: span 2;
   border: solid;
   margin: auto;
-  height: 100%;
+  height: 95%;
   width: 100%;
   box-shadow: 5px 5px 5px black;
   word-wrap: break-word;
@@ -133,15 +145,6 @@ label,
   text-transform: none;
   padding-top: 3%;
 }
-/* #congrats {
-  grid-row: 1;
-  height: 100px;
-  width: 200px;
-  padding-top: 7%;
-  border: solid;
-  text-align: center;
-  font-size: 1rem;
-} */
 
 .crosswordGrid {
   grid-column: 2;
