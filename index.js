@@ -94,19 +94,21 @@ let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
 let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
 
-let sliceFunction = function () {
-  let scam = [];
-  for (let i = 0; i < scaamItems.length; i++) {
-    if (scaamItems[i][0].value == scaamItems[i][1]) {
-      scam.push(scaamItems[i][1]);
+let sliceFunction = function (input) {
+  let word = [];
+  for (let i = 0; i < arrayTest.length; i++) {
+    let currentItemArray = arrayTest[i];
+    for (let j = 0; i < currentItemArray.length; i++) {
+      if (currentItemArray[i][0].value == currentItemArray[i][1]) {
+        word.push(currentItemArray[i][1]);
+      }
+    }
+    if (word.join("") == currentItemArray[4][0]) {
+      document.body.style.backgroundColor = "pink";
+      listChange(scaamItems[4][1]);
+      removeIcon(scaamItems[4][2]);
     }
   }
-  if (scam.join("") == scaamItems[4][0]) {
-    document.body.style.backgroundColor = "pink";
-    listChange(scaamItems[4][1]);
-    removeIcon(scaamItems[4][2]);
-  }
-  return scam.join("");
 };
 
 //Works for one word
