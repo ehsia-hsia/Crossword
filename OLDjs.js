@@ -157,6 +157,99 @@ for (let i = 0; i < scam.length; i++) {
   }
 }
 
+function wordTest() {
+  // let scam =
+  //   letterKey[0][0].value.toString() +
+  //   input[1].value.toString() +
+  //   input[2].value.toString() +
+  //   input[3].value.toString();
+  // if (scam == "scam") {
+  //   listChange(listItem[0]);
+  //   removeIcon(checkIcon[0]);
+  // }
+
+  let tone =
+    input[4].value.toString() +
+    input[5].value.toString() +
+    input[6].value.toString() +
+    input[7].value.toString();
+  if (tone == "tone") {
+    listChange(listItem[1]);
+    removeIcon(checkIcon[1]);
+  }
+  let arts =
+    input[8].value.toString() +
+    input[9].value.toString() +
+    input[10].value.toString() +
+    input[11].value.toString();
+  if (arts == "arts") {
+    listChange(listItem[2]);
+    removeIcon(checkIcon[2]);
+  }
+  let bees =
+    input[12].value.toString() +
+    input[13].value.toString() +
+    input[14].value.toString() +
+    input[15].value.toString();
+  if (bees == "bees") {
+    listChange(listItem[3]);
+    removeIcon(checkIcon[3]);
+  }
+  let stab =
+    input[0].value.toString() +
+    input[4].value.toString() +
+    input[8].value.toString() +
+    input[12].value.toString();
+  if (stab == "stab") {
+    listChange(listItem[4]);
+    removeIcon(checkIcon[4]);
+  }
+  let core =
+    input[1].value.toString() +
+    input[5].value.toString() +
+    input[9].value.toString() +
+    input[13].value.toString();
+  if (core == "core") {
+    listChange(listItem[5]);
+    removeIcon(checkIcon[5]);
+  }
+  let ante =
+    input[2].value.toString() +
+    input[6].value.toString() +
+    input[10].value.toString() +
+    input[14].value.toString();
+  if (ante == "ante") {
+    listChange(listItem[6]);
+    removeIcon(checkIcon[6]);
+  }
+  let mess =
+    input[3].value.toString() +
+    input[7].value.toString() +
+    input[11].value.toString() +
+    input[15].value.toString();
+  if (mess == "mess") {
+    listChange(listItem[7]);
+    removeIcon(checkIcon[7]);
+  }
+}
+//Works for one word
+// for (let i = 0; i < input.length; i++) {
+//   input[i].addEventListener("keyup", sliceFunction);
+// }
+// let sliceFunction = function () {
+//   let scam = [];
+//   for (let i = 0; i < scaamItems.length; i++) {
+//     if (scaamItems[i][0].value == scaamItems[i][1]) {
+//       scam.push(scaamItems[i][1]);
+//     }
+//   }
+//   if (scam.join("") == scaamItems[4][0]) {
+//     document.body.style.backgroundColor = "pink";
+//     listChange(scaamItems[4][1]);
+//     removeIcon(scaamItems[4][2]);
+//   }
+//   return scam.join("");
+// };
 // ____1 ACROSS: SCAM____
 
 let A1_L1 = document.getElementById("across1L1Input");
