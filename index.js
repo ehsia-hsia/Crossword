@@ -1,6 +1,6 @@
 ("use strict");
 
-//VARIABLES
+//VARIABLES & Element Selectors
 let A1_L1 = document.getElementById("across1L1Input");
 let A1_L2 = document.getElementById("across1L2Input");
 let A1_L3 = document.getElementById("across1L3Input");
@@ -32,12 +32,14 @@ const btnCloseModal = document.querySelector(".close-modal");
 let input = document.getElementsByTagName("input");
 
 let clearButton = document.getElementById("clearAll");
-clearButton.addEventListener("click", clearAll);
 
 let revealButton = document.getElementById("revealAll");
+
+//General Even Listeners
+clearButton.addEventListener("click", clearAll);
 revealButton.addEventListener("click", revealAll);
 
-//Letter and Word  KEY
+//Letter and Word
 let letterKey = [
   [A1_L1, "s"],
   [A1_L2, "c"],
@@ -56,78 +58,18 @@ let letterKey = [
   [A4_L3, "e"],
   [A4_L4, "s"],
 ];
+let scamItems = letterKey.slice(0, 4);
 
-function listChange(li) {
-  li.classList.add("cluelistCorrect");
-}
-
-//________________COLOR CHANGES and Status Text ________________
-function correctColorChange(square) {
-  square.classList.add("correctColor");
-  square.classList.remove("incorrectColor");
-}
-
-function incorrectColorChange(square) {
-  square.classList.add("incorrectColor");
-  square.addEventListener("focus", clearletter);
-  function clearletter() {
-    square.value = "";
+let sliceFunction = function () {
+  let scam = [];
+  for (let i = 0; i < scamItems.length; i++) {
+    scam.push(scamItems[i][1]);
+    console.log(scam);
   }
-}
-let congratsCounter = 0;
-function congratsCounterStyles() {
-  if (congratsCounter >= input.length) {
-    status.textContent = "Status: COMPLETE!";
-    openModal();
-  } else if (congratsCounter >= input.length * 0.6) {
-    status.textContent = "Status: Almost complete...";
-  } else if (congratsCounter >= input.length * 0.5) {
-    status.textContent = "Status: 50% complete...";
-  } else if (congratsCounter >= input.length * 0.25) {
-    status.textContent = `Status: 25% complete... `;
-  } else if (congratsCounter == 0) {
-    status.textContent = "Status: ";
-  }
-}
-//_________CURSOR TO NEXT___________
-for (let i = 0; i < input.length; i++) {
-  input[i].addEventListener("keyup", cursorMove);
-  function cursorMove(e) {
-    let nextTarg = input[i];
-    let maxLength = nextTarg.attributes["maxlength"].value;
-    let myLength = nextTarg.value.length;
-    if (myLength >= 1) {
-      let next = nextTarg;
-      while ((nextTarg = nextTarg.nextElementSibling)) {
-        if (nextTarg == null) break;
-        if (nextTarg.tagName.toLowerCase() == "input") {
-          nextTarg.focus();
-          break;
-        }
-        if (nextTarg.nextElementSibling == null) {
-          nextTarg = nextTarg.firstChild;
-          nextTarg.focus();
-          break;
-        }
-      }
-    }
+  return scam.join("");
+};
 
-    if (e.key == "Backspace") {
-      while ((nextTarg = nextTarg.previousElementSibling)) {
-        if (nextTarg == null) break;
-        if (nextTarg.tagName.toLowerCase() == "input") {
-          nextTarg.focus();
-          break;
-        }
-        if (nextTarg.previousElementSibling == null) {
-          break;
-        }
-      }
-    }
-  }
-}
-
-//_______________LETTER CHECKER____________________
+//LETTER Check
 
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", letterChecker);
@@ -142,7 +84,7 @@ for (let i = 0; i < input.length; i++) {
           congratsCounter++;
           wordTest();
         } else {
-          incorrectColorChange(input[i]);
+          incorrectColorChange(letterKey[j][0]);
         } //end letter check
       } //end input id check
     } //loop2
@@ -151,10 +93,10 @@ for (let i = 0; i < input.length; i++) {
   } //test function
 } //end input loop
 
-//___________WORD CHECK_________________
+//Word Check
 function wordTest() {
   let scam =
-    input[0].value.toString() +
+    letterKey[0][0].value.toString() +
     input[1].value.toString() +
     input[2].value.toString() +
     input[3].value.toString();
@@ -230,7 +172,98 @@ function wordTest() {
 function removeIcon(icon) {
   icon.classList.remove("hideIcon");
 }
-//______BUTTONS_____________
+function listChange(li) {
+  li.classList.add("cluelistCorrect");
+}
+
+//---------------Game states--------------------//
+//Color Changes and progress check
+function correctColorChange(square) {
+  square.classList.add("correctColor");
+  square.classList.remove("incorrectColor");
+}
+
+function incorrectColorChange(square) {
+  square.classList.add("incorrectColor");
+  square.addEventListener("focus", clearletter);
+  function clearletter() {
+    square.value = "";
+  }
+}
+let congratsCounter = 0;
+function congratsCounterStyles() {
+  if (congratsCounter >= input.length) {
+    status.textContent = "Status: COMPLETE!";
+    openModal();
+  } else if (congratsCounter >= input.length * 0.6) {
+    status.textContent = "Status: Almost complete...";
+  } else if (congratsCounter >= input.length * 0.5) {
+    status.textContent = "Status: 50% complete...";
+  } else if (congratsCounter >= input.length * 0.25) {
+    status.textContent = `Status: 25% complete... `;
+  } else if (congratsCounter == 0) {
+    status.textContent = "Status: ";
+  }
+}
+
+//Modal on Complete
+const closeModal = function () {
+  overlay.classList.add("hidden");
+  congratsCounter = 0;
+};
+
+const openModal = function () {
+  overlay.classList.remove("hidden");
+};
+
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  console.log(e.key);
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
+//--------------Cursor Behavior----------------//
+//Cursor to next and backspace
+for (let i = 0; i < input.length; i++) {
+  input[i].addEventListener("keyup", cursorMove);
+  function cursorMove(e) {
+    let nextTarg = input[i];
+    let maxLength = nextTarg.attributes["maxlength"].value;
+    let myLength = nextTarg.value.length;
+    if (myLength >= 1) {
+      let next = nextTarg;
+      while ((nextTarg = nextTarg.nextElementSibling)) {
+        if (nextTarg == null) break;
+        if (nextTarg.tagName.toLowerCase() == "input") {
+          nextTarg.focus();
+          break;
+        }
+        if (nextTarg.nextElementSibling == null) {
+          nextTarg = nextTarg.firstChild;
+          nextTarg.focus();
+          break;
+        }
+      }
+    }
+
+    if (e.key == "Backspace") {
+      while ((nextTarg = nextTarg.previousElementSibling)) {
+        if (nextTarg == null) break;
+        if (nextTarg.tagName.toLowerCase() == "input") {
+          nextTarg.focus();
+          break;
+        }
+        if (nextTarg.previousElementSibling == null) {
+          break;
+        }
+      }
+    }
+  }
+}
+
+//-------BUTTONS------//
 //Reveal
 
 function revealAll() {
@@ -261,33 +294,19 @@ function clearAll() {
     }
   }
 }
-// for (let i = 0; i < listItem.length; i++) {
-//   listItem[i].addEventListener("click", clueHighlight);
-//   function clueHighlight() {
-//     if (listItem[i] == listItem[0]) {
-//       input[0].style.borderColor = "pink";
-//       input[1].style.borderColor = "pink";
-//       input[2].style.borderColor = "pink";
-//       input[3].style.borderColor = "pink";
-//     }
-//   }
-// }
-//_____MODAL ON COMPLETE______________
-const closeModal = function () {
-  overlay.classList.add("hidden");
-  congratsCounter = 0;
-};
-
-const openModal = function () {
-  overlay.classList.remove("hidden");
-};
-
-overlay.addEventListener("click", closeModal);
-
-document.addEventListener("keydown", function (e) {
-  ///creates object
-  console.log(e.key);
-  if (e.key === "Escape") {
-    closeModal();
+for (let i = 0; i < listItem.length; i++) {
+  listItem[i].addEventListener("click", clueHighlight);
+  function clueHighlight() {
+    if (listItem[i] == listItem[0]) {
+      input[0].style.borderColor = "pink";
+      input[1].style.borderColor = "pink";
+      input[2].style.borderColor = "pink";
+      input[3].style.borderColor = "pink";
+    } else {
+      input[0].style.borderColor = "white";
+      input[1].style.borderColor = "white";
+      input[2].style.borderColor = "white";
+      input[3].style.borderColor = "white";
+    }
   }
-});
+}
