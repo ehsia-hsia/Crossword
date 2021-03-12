@@ -45,18 +45,22 @@ let letterKey = [
   [A1_L2, "c"],
   [A1_L3, "a"],
   [A1_L4, "m"],
+  ["scam", listItem[0], checkIcon[0]],
   [A2_L1, "t"],
   [A2_L2, "o"],
   [A2_L3, "n"],
   [A2_L4, "e"],
+  ["tone"],
   [A3_L1, "a"],
   [A3_L2, "r"],
   [A3_L3, "t"],
   [A3_L4, "s"],
+  ["arts"],
   [A4_L1, "b"],
   [A4_L2, "e"],
   [A4_L3, "e"],
   [A4_L4, "s"],
+  ["bees"],
 ];
 
 //LETTER Check
@@ -84,8 +88,12 @@ for (let i = 0; i < input.length; i++) {
 } //end input loop
 
 //Word Check
+let scaamItems = letterKey.slice(0, 5);
+let toneItems = letterKey.slice(5, 10);
+let artsItems = letterKey.slice(10, 15);
+let beesItems = letterKey.slice(15, 20);
+let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
 
-let scaamItems = letterKey.slice(0, 4);
 let sliceFunction = function () {
   let scam = [];
   for (let i = 0; i < scaamItems.length; i++) {
@@ -93,26 +101,47 @@ let sliceFunction = function () {
       scam.push(scaamItems[i][1]);
     }
   }
-  if (scam.join("") == "scam") {
+  if (scam.join("") == scaamItems[4][0]) {
     document.body.style.backgroundColor = "pink";
+    listChange(scaamItems[4][1]);
+    removeIcon(scaamItems[4][2]);
   }
   return scam.join("");
 };
 
+//Works for one word
+// for (let i = 0; i < input.length; i++) {
+//   input[i].addEventListener("keyup", sliceFunction);
+// }
+// let sliceFunction = function () {
+//   let scam = [];
+//   for (let i = 0; i < scaamItems.length; i++) {
+//     if (scaamItems[i][0].value == scaamItems[i][1]) {
+//       scam.push(scaamItems[i][1]);
+//     }
+//   }
+//   if (scam.join("") == scaamItems[4][0]) {
+//     document.body.style.backgroundColor = "pink";
+//     listChange(scaamItems[4][1]);
+//     removeIcon(scaamItems[4][2]);
+//   }
+//   return scam.join("");
+// };
+
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", sliceFunction);
 }
-
+///---------------------------------
 function wordTest() {
-  let scam =
-    letterKey[0][0].value.toString() +
-    input[1].value.toString() +
-    input[2].value.toString() +
-    input[3].value.toString();
-  if (scam == "scam") {
-    listChange(listItem[0]);
-    removeIcon(checkIcon[0]);
-  }
+  // let scam =
+  //   letterKey[0][0].value.toString() +
+  //   input[1].value.toString() +
+  //   input[2].value.toString() +
+  //   input[3].value.toString();
+  // if (scam == "scam") {
+  //   listChange(listItem[0]);
+  //   removeIcon(checkIcon[0]);
+  // }
 
   let tone =
     input[4].value.toString() +
