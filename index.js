@@ -58,16 +58,6 @@ let letterKey = [
   [A4_L3, "e"],
   [A4_L4, "s"],
 ];
-let scamItems = letterKey.slice(0, 4);
-
-let sliceFunction = function () {
-  let scam = [];
-  for (let i = 0; i < scamItems.length; i++) {
-    scam.push(scamItems[i][1]);
-    console.log(scam);
-  }
-  return scam.join("");
-};
 
 //LETTER Check
 
@@ -94,6 +84,25 @@ for (let i = 0; i < input.length; i++) {
 } //end input loop
 
 //Word Check
+
+let scaamItems = letterKey.slice(0, 4);
+let sliceFunction = function () {
+  let scam = [];
+  for (let i = 0; i < scaamItems.length; i++) {
+    if (scaamItems[i][0].value == scaamItems[i][1]) {
+      scam.push(scaamItems[i][1]);
+    }
+  }
+  if (scam.join("") == "scam") {
+    document.body.style.backgroundColor = "pink";
+  }
+  return scam.join("");
+};
+
+for (let i = 0; i < input.length; i++) {
+  input[i].addEventListener("keyup", sliceFunction);
+}
+
 function wordTest() {
   let scam =
     letterKey[0][0].value.toString() +
@@ -104,6 +113,7 @@ function wordTest() {
     listChange(listItem[0]);
     removeIcon(checkIcon[0]);
   }
+
   let tone =
     input[4].value.toString() +
     input[5].value.toString() +
@@ -219,7 +229,6 @@ const openModal = function () {
 overlay.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", function (e) {
-  console.log(e.key);
   if (e.key === "Escape") {
     closeModal();
   }
