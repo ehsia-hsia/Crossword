@@ -105,6 +105,8 @@ for (let i = 0; i < input.length; i++) {
           break;
         }
         if (nextTarg.nextElementSibling == null) {
+          nextTarg = nextTarg.firstChild;
+          nextTarg.focus();
           break;
         }
       }
@@ -248,6 +250,7 @@ function clearAll() {
   let input = document.getElementsByTagName("input");
   for (let j = 0; j < listItem.length; j++) {
     listItem[j].classList.remove("cluelistCorrect");
+    checkIcon[j].classList.add("hideIcon");
   }
   for (let i = 0; i < input.length; i++) {
     if (input[i].type == "text") {
