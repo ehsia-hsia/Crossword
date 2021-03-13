@@ -91,30 +91,34 @@ let scaamItems = letterKey.slice(0, 5);
 let toneItems = letterKey.slice(5, 10);
 let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
-let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
-
-let word = [];
-
-function clearWord() {
-  word = [];
-  console.log(word);
-}
+//Works for one word
+//Word checker notes:
 
 let sliceFunction = function () {
-  for (let i = 0; i < arrayTest.length; i++) {
-    let currentItemArray = arrayTest[i];
-    for (let j = 0; i < currentItemArray.length; i++) {
-      if (currentItemArray[i][0].value == currentItemArray[i][1]) {
-        word.push(currentItemArray[i][1]);
-      }
-      if (word.join("") == currentItemArray[4][0]) {
-        listChange(currentItemArray[4][1]);
-        removeIcon(currentItemArray[4][2]);
-      }
+  let scam = [];
+  for (let i = 0; i < scaamItems.length; i++) {
+    if (scaamItems[i][0].value == scaamItems[i][1]) {
+      scam.push(scaamItems[i][1]);
     }
-    console.log(word);
   }
-  clearWord();
+  if (scam.join("") == scaamItems[4][0]) {
+    document.body.style.backgroundColor = "pink";
+    listChange(scaamItems[4][1]);
+    removeIcon(scaamItems[4][2]);
+  }
+
+  let tone = [];
+  for (let i = 0; i < toneItems.length; i++) {
+    if (toneItems[i][0].value == toneItems[i][1]) {
+      tone.push(toneItems[i][1]);
+    }
+  }
+  if (tone.join("") == toneItems[4][0]) {
+    document.body.style.backgroundColor = "pink";
+    listChange(toneItems[4][1]);
+    removeIcon(toneItems[4][2]);
+  }
+  return scam.join(""), tone.join("");
 };
 
 for (let i = 0; i < input.length; i++) {

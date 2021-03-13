@@ -287,6 +287,27 @@ function A1L4() {
   return scam4 !== true ? incorrectColorChange(this) : correctColorChange(this);
 }
 
+let words = [
+  {
+    word: "scam",
+    slicey: letterKey.slice(0, 5),
+    id: function () {
+      for (let i = 0; i < this.slicey.length; i++) {
+        return this.slicey[i][0];
+      }
+    },
+  },
+];
+
+function sliceFunction() {
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] == words[i].id()) {
+      document.body.style.backgroundColor = "pink";
+    } else {
+      document.body.style.backgroundColor = "blue";
+    }
+  }
+}
 // ________2 Across: TONE__
 
 let A2_L1 = document.getElementById("across2L1Input");
