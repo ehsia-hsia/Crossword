@@ -93,22 +93,28 @@ let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
 let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
 
+let word = [];
+
+function clearWord() {
+  word = [];
+  console.log(word);
+}
+
 let sliceFunction = function () {
-  let scam = [];
   for (let i = 0; i < arrayTest.length; i++) {
     let currentItemArray = arrayTest[i];
     for (let j = 0; i < currentItemArray.length; i++) {
       if (currentItemArray[i][0].value == currentItemArray[i][1]) {
-        if (currentItemArray[i] == scaamItems)
-          scam.push(currentItemArray[i][1]);
+        word.push(currentItemArray[i][1]);
+      }
+      if (word.join("") == currentItemArray[4][0]) {
+        listChange(currentItemArray[4][1]);
+        removeIcon(currentItemArray[4][2]);
       }
     }
-    if (scam.join("") == currentItemArray[4][0]) {
-      listChange(currentItemArray[4][1]);
-      removeIcon(currentItemArray[4][2]);
-    }
+    console.log(word);
   }
-  console.log(word);
+  clearWord();
 };
 
 for (let i = 0; i < input.length; i++) {
