@@ -60,7 +60,7 @@ let letterKey = [
   [A4_L2, "e"],
   [A4_L3, "e"],
   [A4_L4, "s"],
-  ["bees"],
+  ["bees", listItem[3], checkIcon[3]],
 ];
 
 //LETTER Check
@@ -75,14 +75,14 @@ for (let i = 0; i < input.length; i++) {
         if (input[i].value == letterKey[j][1]) {
           //if value of input match nested array 1, which holds letter value
           correctColorChange(input[i]);
-          congratsCounter++;
+          // congratsCounter++;
         } else {
           incorrectColorChange(letterKey[j][0]);
         } //end letter check
       } //end input id check
     } //loop2
-    console.log(congratsCounter);
-    congratsCounterStyles();
+    // console.log(congratsCounter);
+    // congratsCounterStyles();
   } //test function
 } //end input loop
 
@@ -91,34 +91,39 @@ let scaamItems = letterKey.slice(0, 5);
 let toneItems = letterKey.slice(5, 10);
 let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
+let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
 //Works for one word
-//Word checker notes:
 
 let sliceFunction = function () {
   let scam = [];
-  for (let i = 0; i < scaamItems.length; i++) {
+  let tone = [];
+  let arts = [];
+  let bees = [];
+  let wordArray = [scam, tone, arts, bees];
+
+  for (let i = 0; i < arrayTest.length; i++) {
     if (scaamItems[i][0].value == scaamItems[i][1]) {
       scam.push(scaamItems[i][1]);
     }
-  }
-  if (scam.join("") == scaamItems[4][0]) {
-    document.body.style.backgroundColor = "pink";
-    listChange(scaamItems[4][1]);
-    removeIcon(scaamItems[4][2]);
-  }
-
-  let tone = [];
-  for (let i = 0; i < toneItems.length; i++) {
     if (toneItems[i][0].value == toneItems[i][1]) {
       tone.push(toneItems[i][1]);
     }
+    if (artsItems[i][0].value == artsItems[i][1]) {
+      arts.push(artsItems[i][1]);
+    }
+    if (beesItems[i][0].value == beesItems[i][1]) {
+      bees.push(beesItems[i][1]);
+    }
   }
-  if (tone.join("") == toneItems[4][0]) {
-    document.body.style.backgroundColor = "pink";
-    listChange(toneItems[4][1]);
-    removeIcon(toneItems[4][2]);
+  for (let j = 0; j < wordArray.length; j++) {
+    if (wordArray[j].join("") == arrayTest[j][4][0]) {
+      document.body.style.backgroundColor = "pink";
+      listChange(arrayTest[j][4][1]);
+      removeIcon(arrayTest[j][4][2]);
+    }
   }
-  return scam.join(""), tone.join("");
+
+  return scam.join(""), tone.join(""), arts.join(""), bees.join("");
 };
 
 for (let i = 0; i < input.length; i++) {
@@ -147,21 +152,21 @@ function incorrectColorChange(square) {
     square.value = "";
   }
 }
-let congratsCounter = 0;
-function congratsCounterStyles() {
-  if (congratsCounter >= input.length) {
-    status.textContent = "Status: COMPLETE!";
-    openModal();
-  } else if (congratsCounter >= input.length * 0.6) {
-    status.textContent = "Status: Almost complete...";
-  } else if (congratsCounter >= input.length * 0.5) {
-    status.textContent = "Status: 50% complete...";
-  } else if (congratsCounter >= input.length * 0.25) {
-    status.textContent = `Status: 25% complete... `;
-  } else if (congratsCounter == 0) {
-    status.textContent = "Status: ";
-  }
-}
+// let congratsCounter = 0;
+// function congratsCounterStyles() {
+//   if (congratsCounter >= input.length) {
+//     status.textContent = "Status: COMPLETE!";
+//     openModal();
+//   } else if (congratsCounter >= input.length * 0.6) {
+//     status.textContent = "Status: Almost complete...";
+//   } else if (congratsCounter >= input.length * 0.5) {
+//     status.textContent = "Status: 50% complete...";
+//   } else if (congratsCounter >= input.length * 0.25) {
+//     status.textContent = `Status: 25% complete... `;
+//   } else if (congratsCounter == 0) {
+//     status.textContent = "Status: ";
+//   }
+// }
 
 //Modal on Complete
 const closeModal = function () {
