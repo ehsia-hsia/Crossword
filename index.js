@@ -88,6 +88,11 @@ for (let i = 0; i < input.length; i++) {
 
 //Word Check
 let scaamItems = letterKey.slice(0, 5);
+/*0:[input#across1L1Input, "s"]
+1:[input#across1L2Input, "c"]
+2:[input#across1L3Input, "a"]
+3:[input#across1L4Input, "m"]
+4:["scam", li#scamclue, i.fas.fa-check.checkIcon.hideIcon]*/
 let toneItems = letterKey.slice(5, 10);
 let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
@@ -100,24 +105,16 @@ let sliceFunction = function () {
   let arts = [];
   let bees = [];
   let wordArray = [scam, tone, arts, bees];
-
   for (let i = 0; i < arrayTest.length; i++) {
-    if (scaamItems[i][0].value == scaamItems[i][1]) {
-      scam.push(scaamItems[i][1]);
-    }
-    if (toneItems[i][0].value == toneItems[i][1]) {
-      tone.push(toneItems[i][1]);
-    }
-    if (artsItems[i][0].value == artsItems[i][1]) {
-      arts.push(artsItems[i][1]);
-    }
-    if (beesItems[i][0].value == beesItems[i][1]) {
-      bees.push(beesItems[i][1]);
+    for (let h = 0; h < arrayTest[i].length; h++) {
+      if (arrayTest[i][h][0].value == arrayTest[i][h][1]) {
+        wordArray[i].push(arrayTest[i][h][1]);
+        console.log(wordArray[i]);
+      }
     }
   }
   for (let j = 0; j < wordArray.length; j++) {
     if (wordArray[j].join("") == arrayTest[j][4][0]) {
-      document.body.style.backgroundColor = "pink";
       listChange(arrayTest[j][4][1]);
       removeIcon(arrayTest[j][4][2]);
     }
