@@ -88,18 +88,13 @@ for (let i = 0; i < input.length; i++) {
 
 //Word Check
 let scaamItems = letterKey.slice(0, 5);
-/*0:[input#across1L1Input, "s"]
-1:[input#across1L2Input, "c"]
-2:[input#across1L3Input, "a"]
-3:[input#across1L4Input, "m"]
-4:["scam", li#scamclue, i.fas.fa-check.checkIcon.hideIcon]*/
+
 let toneItems = letterKey.slice(5, 10);
 let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
 let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
-//Works for one word
 
-let sliceFunction = function () {
+let wordChecker = function () {
   let scam = [];
   let tone = [];
   let arts = [];
@@ -109,7 +104,7 @@ let sliceFunction = function () {
     for (let h = 0; h < arrayTest[i].length; h++) {
       if (arrayTest[i][h][0].value == arrayTest[i][h][1]) {
         wordArray[i].push(arrayTest[i][h][1]);
-        console.log(wordArray[i]);
+        console.log(wordArray[i], wordArray[i].indexOf(arrayTest[i][h][1]));
       }
     }
   }
@@ -124,7 +119,7 @@ let sliceFunction = function () {
 };
 
 for (let i = 0; i < input.length; i++) {
-  input[i].addEventListener("keyup", sliceFunction);
+  input[i].addEventListener("keyup", wordChecker);
 }
 ///---------------------------------
 
@@ -226,9 +221,9 @@ for (let i = 0; i < input.length; i++) {
 
 function revealAll() {
   for (let j = 0; j < letterKey.length; j++) {
-    if (letterKey[j][0].value !== letterKey[j][1]) {
+    while (letterKey[j][j].value !== letterKey[j][1]) {
       letterKey[j][0].value = letterKey[j][1];
-      letterKey[j][0].classList.add("blackLetter");
+      letterKey[j][j].classList.add("blackLetter");
     }
   }
 }
