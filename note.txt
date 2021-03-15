@@ -1,0 +1,44 @@
+for (let i = 0; i < input.length; i++) {
+  input[i].addEventListener("keyup", letterChecker);
+  function letterChecker() {
+    for (let j = 0; j < letterKey.length; j++) {
+      // iterate through array
+      if (input[i] == letterKey[j][0]) {
+        // match input selected to nested array 0, which holds id of inputs
+        if (input[i].value == letterKey[j][1]) {
+          //if value of input match nested array 1, which holds letter value
+          correctColorChange(input[i]);
+          // congratsCounter++;
+        } else {
+          incorrectColorChange(letterKey[j][0]);
+        } //end letter check
+      } //end input id check
+    } //loop2
+    // console.log(congratsCounter);
+    // congratsCounterStyles();
+  } //test function
+} //end input loop
+
+
+let wordChecker = function () {
+  let scam = [];
+  let tone = [];
+  let arts = [];
+  let bees = [];
+  let stab = [];
+  let wordArray = [scam, tone, arts, bees, stab];
+  for (let i = 0; i < loopArray.length; i++) {
+    for (let h = 0; h < loopArray[i].length; h++) {
+      if (loopArray[i][h][0].value == loopArray[i][h][1]) {
+        wordArray[i].push(loopArray[i][h][1]);
+      }
+    }
+  }
+  for (let j = 0; j < wordMatchKey.length; j++) {
+    if (wordArray[j].join("") == wordMatchKey[j][0]) {
+      listChange(wordMatchKey[j][1]);
+      removeIcon(wordMatchKey[j][2]);
+    }
+  }
+  return scam.join(""), tone.join(""), arts.join(""), bees.join("");
+};

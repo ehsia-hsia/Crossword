@@ -1,4 +1,20 @@
 /* this version set empty values to each letter and decided true or false and ran functions based on true or flase values. lot of hard coded values and functions for each variable  and so many varibles. */
+
+// let congratsCounter = 0;
+// function congratsCounterStyles() {
+//   if (congratsCounter >= input.length) {
+//     status.textContent = "Status: COMPLETE!";
+//     openModal();
+//   } else if (congratsCounter >= input.length * 0.6) {
+//     status.textContent = "Status: Almost complete...";
+//   } else if (congratsCounter >= input.length * 0.5) {
+//     status.textContent = "Status: 50% complete...";
+//   } else if (congratsCounter >= input.length * 0.25) {
+//     status.textContent = `Status: 25% complete... `;
+//   } else if (congratsCounter == 0) {
+//     status.textContent = "Status: ";
+//   }
+// }
 // 1. iterate throught input and call this
 function checkLetter() {
   if (A1_L1.value.toUpperCase().match("S")) {
