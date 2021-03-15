@@ -61,9 +61,14 @@ let letterKey = [
   [A4_L3, "e"],
   [A4_L4, "s"],
   ["bees", listItem[3], checkIcon[3]],
+  [A1_L1, "s"],
+  [A2_L1, "t"],
+  [A3_L1, "a"],
+  [A4_L1, "b"],
+  ["stab", listItem[4], checkIcon[4]],
 ];
 
-//LETTER Check
+//-------------LETTER Check
 
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", letterChecker);
@@ -86,25 +91,26 @@ for (let i = 0; i < input.length; i++) {
   } //test function
 } //end input loop
 
-//Word Check
+//---------------Word Check
 let scaamItems = letterKey.slice(0, 5);
-
 let toneItems = letterKey.slice(5, 10);
 let artsItems = letterKey.slice(10, 15);
 let beesItems = letterKey.slice(15, 20);
-let arrayTest = [scaamItems, toneItems, artsItems, beesItems];
+let stabItems = letterKey.slice(20, 25);
+
+let arrayTest = [scaamItems, toneItems, artsItems, beesItems, stabItems];
 
 let wordChecker = function () {
   let scam = [];
   let tone = [];
   let arts = [];
   let bees = [];
-  let wordArray = [scam, tone, arts, bees];
+  let stab = [];
+  let wordArray = [scam, tone, arts, bees, stab];
   for (let i = 0; i < arrayTest.length; i++) {
     for (let h = 0; h < arrayTest[i].length; h++) {
       if (arrayTest[i][h][0].value == arrayTest[i][h][1]) {
         wordArray[i].push(arrayTest[i][h][1]);
-        console.log(wordArray[i], wordArray[i].indexOf(arrayTest[i][h][1]));
       }
     }
   }
@@ -114,7 +120,6 @@ let wordChecker = function () {
       removeIcon(arrayTest[j][4][2]);
     }
   }
-
   return scam.join(""), tone.join(""), arts.join(""), bees.join("");
 };
 
@@ -220,10 +225,10 @@ for (let i = 0; i < input.length; i++) {
 //Reveal
 
 function revealAll() {
-  for (let j = 0; j < letterKey.length; j++) {
-    while (letterKey[j][j].value !== letterKey[j][1]) {
-      letterKey[j][0].value = letterKey[j][1];
-      letterKey[j][j].classList.add("blackLetter");
+  for (let x = 0; x < letterKey.length; x++) {
+    if (letterKey[x][1].value !== letterKey[x][1]) {
+      letterKey[x][1].value = letterKey[x][1];
+      letterKey[0].classList.add("blackLetter");
     }
   }
 }
@@ -250,16 +255,8 @@ function clearAll() {
 for (let i = 0; i < listItem.length; i++) {
   listItem[i].addEventListener("click", clueHighlight);
   function clueHighlight() {
-    if (listItem[i] == listItem[0]) {
-      input[0].style.borderColor = "pink";
-      input[1].style.borderColor = "pink";
-      input[2].style.borderColor = "pink";
-      input[3].style.borderColor = "pink";
-    } else {
-      input[0].style.borderColor = "white";
-      input[1].style.borderColor = "white";
-      input[2].style.borderColor = "white";
-      input[3].style.borderColor = "white";
+    for (let b = 0; b < arrayTest.length; b++) {
+      arrayTest[i][b][0].style.borderColor = "pink";
     }
   }
 }
