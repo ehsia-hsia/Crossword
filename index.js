@@ -249,7 +249,7 @@ function clearAll() {
       input[i].classList.remove("correctColor");
       input[i].classList.remove("incorrectColor");
       input[i].classList.remove("blackLetter");
-      input[i].disabled = true;
+      input[i].disabled = false;
     }
   }
 }
@@ -273,13 +273,9 @@ for (let i = 0; i < input.length; i++) {
     let nextTarg = input[i];
     let myLength = nextTarg.value.length;
     if (myLength >= 1) {
+      nextTarg.focus();
       while ((nextTarg = nextTarg.nextElementSibling)) {
         if (nextTarg == null) break;
-        if (nextTarg.disabled == true) {
-          nextElementSibling = nextTarg.nextSibling.enabled;
-          nextTarg.focus();
-          break;
-        }
         if (nextTarg.tagName.toLowerCase() == "input") {
           nextTarg.focus();
           break;
