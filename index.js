@@ -124,9 +124,9 @@ for (let i = 0; i < input.length; i++) {
       if (input[i] == letterKey[j][0]) {
         if (input[i].value == letterKey[j][1]) {
           correctColorChange(input[i]);
-          input[i].disabled = true;
-          congratsCounter++;
+          input[i].readOnly = true;
           congratsCounterStyles();
+          congratsCounter++;
           console.log(congratsCounter);
         } else {
           incorrectColorChange(letterKey[j][0]);
@@ -193,7 +193,7 @@ function listChange(li) {
 }
 
 function congratsCounterStyles() {
-  if (congratsCounter >= letterKey.length) {
+  if (congratsCounter >= letterKey.length - 1) {
     status.textContent = "Status: COMPLETE!";
     openModal();
   } else if (congratsCounter >= input.length * 0.6) {
@@ -269,13 +269,13 @@ for (let i = 0; i < listItem.length; i++) {
 for (let i = 0; i < input.length; i++) {
   input[i].autocomplete = "off";
 }
-//Cursor to next and backspace
+// Cursor to next and backspace
 for (let i = 0; i < input.length; i++) {
   input[i].addEventListener("keyup", cursorMove);
   function cursorMove(e) {
     let nextTarg = input[i];
     let myLength = nextTarg.value.length;
-    if (myLength >= 1) {
+    if (myLength >= 1 && input[i].readOnly == true) {
       nextTarg.focus();
       while ((nextTarg = nextTarg.nextElementSibling)) {
         if (nextTarg == null) break;
@@ -285,6 +285,11 @@ for (let i = 0; i < input.length; i++) {
         }
         if (nextTarg.nextElementSibling == null) {
           nextTarg = nextTarg.firstChild;
+          nextTarg.focus();
+          break;
+        }
+        if (nextTarg.readOnly == true) {
+          nextTarg = nextTarg.nextSibling;
           nextTarg.focus();
           break;
         }
