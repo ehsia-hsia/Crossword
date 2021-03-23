@@ -125,6 +125,9 @@ for (let i = 0; i < input.length; i++) {
         if (input[i].value == letterKey[j][1]) {
           correctColorChange(input[i]);
           input[i].disabled = true;
+          congratsCounter++;
+          congratsCounterStyles();
+          console.log(congratsCounter);
         } else {
           incorrectColorChange(letterKey[j][0]);
         }
@@ -190,7 +193,7 @@ function listChange(li) {
 }
 
 function congratsCounterStyles() {
-  if (congratsCounter >= input.length) {
+  if (congratsCounter >= letterKey.length) {
     status.textContent = "Status: COMPLETE!";
     openModal();
   } else if (congratsCounter >= input.length * 0.6) {
